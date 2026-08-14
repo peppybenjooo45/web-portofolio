@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Interaktif</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc; /* Slate 50 */
+            overflow-x: hidden;
+        }
+        
+        /* Animasi Mengambang (Floating) */
+        .blob {
+            animation: float 6s ease-in-out infinite;
+        }
+        .blob-delayed {
+            animation: float 6s ease-in-out 3s infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+
+        /* Animasi Mengetik */
+        .typewriter-text {
+            border-right: 4px solid #3b82f6; /* Blue 500 */
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #3b82f6; }
+        }
+
+        /* Kustom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Efek Cahaya Latar Belakang (Blobs) -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[100px] opacity-30 blob"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-30 blob-delayed"></div>
+    </div>
+
+    <!-- Navigasi -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">MyPorto.</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-blue-400 transition">Beranda</a>
+                <a href="#about" class="hover:text-purple-400 transition">Tentang</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Proyek</a>
+                <a href="#contact" class="px-5 py-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition border border-white/10">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Beranda / Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="text-center max-w-3xl" data-aos="zoom-in" data-aos-duration="1200">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-semibold tracking-wide backdrop-blur-md">
+                Selamat Datang di Dunia Kreatif Saya 👋
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Saya Membangun <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 inline-block typewriter-text max-w-fit mx-auto">
+                    Website Modern.
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+                Seorang Front-End Developer yang bersemangat menciptakan pengalaman digital interaktif, responsif, dan memukau menggunakan Next.js & Tailwind CSS.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all duration-300">
+                    Lihat Karya Saya
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+                    Hubungi Saya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang / Keahlian -->
+    <section id="about" class="py-24 px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Teknologi yang Saya Kuasai</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skill 1 -->
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-blue-500/50 group" data-aos="flip-left" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg">Next.js</h3>
+                </div>
+                <!-- Skill 2 -->
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-teal-500/50 group" data-aos="flip-left" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg">Tailwind CSS</h3>
+                </div>
+                <!-- Skill 3 -->
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-yellow-500/50 group" data-aos="flip-left" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg">JavaScript ES6+</h3>
+                </div>
+                <!-- Skill 4 -->
+                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-purple-500/50 group" data-aos="flip-left" data-aos-delay="400">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h3 class="font-bold text-lg">UI/UX Animation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyek -->
+    <section id="projects" class="py-24 px-6 relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Karya Terbaru</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Kartu Proyek 1 -->
+                <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-56 bg-slate-700 overflow-hidden relative">
+                        <!-- Placeholder Gambar Latar Belakang gradien -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-slate-500 font-bold text-xl">Preview E-Commerce</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-bold">Next.js</span>
+                            <span class="px-3 py-1 bg-teal-500/10 text-teal-400 rounded-full text-xs font-bold">Tailwind</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">Toko Online Premium</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-3">Membangun platform e-commerce dengan sistem keranjang belanja interaktif dan desain yang sangat responsif.</p>
+                        <a href="#" class="inline-flex items-center text-sm font-bold text-blue-400 hover:text-blue-300">
+                            Lihat Detail <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Proyek 2 -->
+                <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-56 bg-slate-700 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-600/20 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-slate-500 font-bold text-xl">Preview Microblog</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs font-bold">React</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-full text-xs font-bold">Hygraph</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">Sistem Microblog</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-3">Aplikasi blog ringan menggunakan Headless CMS yang kita pelajari dari Vercel dengan manajemen data yang cepat.</p>
+                        <a href="#" class="inline-flex items-center text-sm font-bold text-purple-400 hover:text-purple-300">
+                            Lihat Detail <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Proyek 3 -->
+                <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-yellow-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-56 bg-slate-700 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-600/20 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-slate-500 font-bold text-xl">Preview Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs font-bold">JavaScript</span>
+                            <span class="px-3 py-1 bg-orange-500/10 text-orange-400 rounded-full text-xs font-bold">API</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Dashboard Analytics</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-3">Panel analitik data interaktif yang menampilkan grafik dan diagram secara real-time dari REST API.</p>
+                        <a href="#" class="inline-flex items-center text-sm font-bold text-yellow-400 hover:text-yellow-300">
+                            Lihat Detail <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Kontak -->
+    <footer id="contact" class="py-12 bg-slate-900 border-t border-slate-800 text-center">
+        <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
+            <h2 class="text-3xl font-bold mb-6">Tertarik Bekerja Sama?</h2>
+            <p class="text-slate-400 mb-8">Saya selalu terbuka untuk mendiskusikan pekerjaan desain produk, atau peluang kemitraan lainnya.</p>
+            <a href="mailto:halo@email.com" class="inline-block px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all duration-300">
+                Kirim Pesan
+            </a>
+            <div class="mt-16 text-slate-600 text-sm">
+                &copy; 2026 Dibuat dengan Tailwind CSS & Animasi Keren.
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inisialisasi library animasi saat scroll (AOS)
+        AOS.init({
+            once: true, // Animasi hanya berjalan sekali saat di-scroll
+            offset: 100, // Jarak scroll sebelum animasi mulai
+            duration: 800, // Durasi standar animasi
+            easing: 'ease-out-cubic',
+        });
+
+        // Efek blur/shadow pada Navbar saat di-scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
