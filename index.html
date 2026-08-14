@@ -78,22 +78,69 @@
     <!-- Beranda / Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative">
         
-        <!-- MULAI: Kartu Interaktif -->
-        <div id="interactive-card" class="absolute top-0 left-8 md:left-24 lg:left-40 z-10 flex flex-col items-center cursor-grab hidden sm:flex" style="transform-origin: top center; transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);">
-            <!-- Tali Penggantung -->
-            <div class="w-1 h-24 md:h-32 bg-gradient-to-b from-blue-500/80 to-purple-500/20 rounded-b-full pointer-events-none"></div>
-            <!-- Kartu Glassmorphism -->
-            <div class="bg-slate-800/40 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-[0_10px_30px_rgba(59,130,246,0.2)] flex items-center gap-4 hover:border-blue-500/50 transition-colors duration-300 select-none">
-                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl shadow-lg transform -rotate-6 pointer-events-none">
-                    🚀
+       <!-- MULAI: ID Card Interaktif -->
+        <div id="interactive-card" class="absolute top-0 left-12 md:left-32 lg:left-48 z-10 flex flex-col items-center cursor-grab hidden sm:flex" style="transform-origin: top center; transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);">
+            
+            <!-- 1. Tali Lanyard -->
+            <div class="w-9 h-20 md:h-28 bg-orange-600 border-x-2 border-orange-700 pointer-events-none relative shadow-inner flex flex-col items-center justify-end pb-2">
+                <!-- Paku keling (Rivet) -->
+                <div class="w-2.5 h-2.5 rounded-full bg-gray-300 shadow-sm border border-gray-400 mb-1"></div>
+            </div>
+            
+            <!-- 2. Besi Pengait (Clip) -->
+            <div class="pointer-events-none flex flex-col items-center -mt-1 z-10">
+                <!-- Segitiga metal -->
+                <div class="w-12 h-6 border-4 border-gray-300 border-t-0 rounded-b-lg shadow-[0_2px_4px_rgba(0,0,0,0.1)]"></div>
+                <!-- Pengait tengah -->
+                <div class="w-3.5 h-8 bg-gradient-to-b from-gray-200 to-gray-400 border border-gray-400 rounded-sm shadow-md -mt-1"></div>
+                <!-- Ring lubang ID card -->
+                <div class="w-6 h-6 border-4 border-gray-300 rounded-full shadow-sm -mt-2 bg-white"></div>
+            </div>
+            
+            <!-- 3. Body ID Card -->
+            <div class="bg-white w-56 h-80 rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.3)] flex flex-col items-center overflow-hidden border border-gray-200 -mt-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-shadow duration-300 select-none">
+                
+                <!-- Ornamen Atas (Orange Curve) -->
+                <div class="w-full h-24 bg-orange-600 relative overflow-hidden pointer-events-none">
+                    <div class="absolute -right-8 -bottom-12 w-40 h-40 bg-white rounded-full"></div>
+                    <div class="absolute -left-4 -top-8 w-24 h-24 bg-orange-500 rounded-full opacity-80"></div>
                 </div>
-                <div class="pointer-events-none">
-                    <p class="text-[10px] text-blue-400 font-bold uppercase tracking-widest mb-0.5">Status Saat Ini</p>
-                    <p class="text-sm text-white font-bold">Tersedia untuk Proyek</p>
+                
+                <!-- Foto Profil (Lingkaran) -->
+                <div class="w-24 h-24 bg-slate-100 rounded-full border-[5px] border-white shadow-sm -mt-12 overflow-hidden z-10 pointer-events-none flex items-center justify-center">
+                    <!-- Anda bisa mengganti span ini dengan tag <img> untuk memasukkan foto asli -->
+                    <span class="text-3xl font-extrabold text-slate-300">ID</span>
+                </div>
+                
+                <!-- Info Data -->
+                <div class="text-center mt-2 pointer-events-none px-4 w-full">
+                    <h3 class="text-lg font-bold text-gray-800 leading-tight">Ludovicus Chandra K.</h3>
+                    <p class="text-sm text-gray-500 mt-0.5">Front-End Developer</p>
+                    
+                    <div class="mt-4 pt-4 w-full text-center">
+                        <p class="text-[9px] text-gray-400 font-bold mb-1 uppercase tracking-wider">ID Number</p>
+                        <p class="text-xs font-mono text-gray-700 font-bold tracking-widest">1234567890</p>
+                    </div>
+                    
+                    <!-- Barcode Imitasi (Garis-garis hitam) -->
+                    <div class="flex justify-center gap-[2px] mt-2 h-8 w-full px-6">
+                        <div class="w-1 h-full bg-gray-900"></div>
+                        <div class="w-2 h-full bg-gray-900"></div>
+                        <div class="w-1 h-full bg-gray-900"></div>
+                        <div class="w-[2px] h-full bg-gray-900"></div>
+                        <div class="w-[2px] h-full bg-gray-900"></div>
+                        <div class="w-1.5 h-full bg-gray-900"></div>
+                        <div class="w-2 h-full bg-gray-900"></div>
+                        <div class="w-[2px] h-full bg-gray-900"></div>
+                        <div class="w-1 h-full bg-gray-900"></div>
+                        <div class="w-[3px] h-full bg-gray-900"></div>
+                        <div class="w-1 h-full bg-gray-900"></div>
+                        <div class="w-2 h-full bg-gray-900"></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- SELESAI: Kartu Interaktif -->
+        <!-- SELESAI: ID Card Interaktif -->
 
         <div class="text-center max-w-3xl" data-aos="zoom-in" data-aos-duration="1200">
             <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-semibold tracking-wide backdrop-blur-md">
