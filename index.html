@@ -52,16 +52,6 @@
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
-
-        /* Animasi Kartu Menggantung (Swing) */
-        @keyframes swing {
-            0%, 100% { transform: rotate(-4deg); }
-            50% { transform: rotate(4deg); }
-        }
-        .swing-card {
-            transform-origin: top center;
-            animation: swing 6s ease-in-out infinite;
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
@@ -86,23 +76,25 @@
     </nav>
 
     <!-- Beranda / Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
-<!-- MULAI: Kartu Menggantung (Ditambahkan dari request) -->
-        <div class="absolute top-0 left-8 md:left-24 lg:left-40 z-10 flex flex-col items-center swing-card hidden sm:flex">
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative">
+        
+        <!-- MULAI: Kartu Interaktif -->
+        <div id="interactive-card" class="absolute top-0 left-8 md:left-24 lg:left-40 z-10 flex flex-col items-center cursor-grab hidden sm:flex" style="transform-origin: top center; transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);">
             <!-- Tali Penggantung -->
-            <div class="w-1 h-24 md:h-32 bg-gradient-to-b from-blue-500/80 to-purple-500/20 rounded-b-full"></div>
+            <div class="w-1 h-24 md:h-32 bg-gradient-to-b from-blue-500/80 to-purple-500/20 rounded-b-full pointer-events-none"></div>
             <!-- Kartu Glassmorphism -->
-            <div class="bg-slate-800/40 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-[0_10px_30px_rgba(59,130,246,0.2)] flex items-center gap-4 hover:scale-110 transition-transform duration-300">
-                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl shadow-lg transform -rotate-6">
+            <div class="bg-slate-800/40 backdrop-blur-md border border-white/10 p-4 rounded-2xl shadow-[0_10px_30px_rgba(59,130,246,0.2)] flex items-center gap-4 hover:border-blue-500/50 transition-colors duration-300 select-none">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-2xl shadow-lg transform -rotate-6 pointer-events-none">
                     🚀
                 </div>
-                <div>
+                <div class="pointer-events-none">
                     <p class="text-[10px] text-blue-400 font-bold uppercase tracking-widest mb-0.5">Status Saat Ini</p>
                     <p class="text-sm text-white font-bold">Tersedia untuk Proyek</p>
                 </div>
             </div>
         </div>
-        
+        <!-- SELESAI: Kartu Interaktif -->
+
         <div class="text-center max-w-3xl" data-aos="zoom-in" data-aos-duration="1200">
             <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-semibold tracking-wide backdrop-blur-md">
                 Selamat Datang di Dunia Kreatif Saya 👋
@@ -272,6 +264,56 @@
                 nav.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-lg');
             }
         });
+
+        // Logika Animasi Kartu Interaktif (Drag & Swing)
+        const cardWrapper = document.getElementById('interactive-card');
+        let isDragging = false;
+        let originX, originY;
+
+        if (cardWrapper) {
+            // Saat kartu diklik dan ditahan
+            cardWrapper.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                cardWrapper.style.transition = 'none'; // Matikan transisi agar responsif mengikuti mouse
+                cardWrapper.classList.replace('cursor-grab', 'cursor-grabbing');
+                
+                // Set titik pusat tarikan di pangkal atas tali
+                const rect = cardWrapper.getBoundingClientRect();
+                originX = rect.left + (rect.width / 2);
+                originY = rect.top; 
+            });
+
+            // Saat mouse ditarik geser
+            window.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                const deltaX = mouseX - originX;
+                const deltaY = mouseY - originY;
+                
+                let angle = Math.atan2(deltaX, deltaY) * (180 / Math.PI);
+                
+                // Batasan kemiringan rotasi
+                if (angle > 60) angle = 60;
+                if (angle < -60) angle = -60;
+                
+                cardWrapper.style.transform = `rotate(${-angle}deg)`;
+            });
+
+            // Saat klik mouse dilepas
+            window.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                cardWrapper.classList.replace('cursor-grabbing', 'cursor-grab');
+                
+                // Efek ayun memantul (spring) kembali ke posisi semula
+                cardWrapper.style.transition = 'transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                cardWrapper.style.transform = 'rotate(0deg)';
+            });
+        }
     </script>
 </body>
 </html>
