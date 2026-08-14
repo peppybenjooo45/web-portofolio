@@ -317,3 +317,34 @@ function initParticleWaves() {
 
 // Jalankan fungsi saat web dimuat
 document.addEventListener("DOMContentLoaded", initParticleWaves);
+
+
+
+// ============================================================
+// SENSOR SCROLL EFEK BLACK HOLE (PENGALAMAN KERJA)
+// ============================================================
+const blackHoleItems = document.querySelectorAll('.black-hole-item');
+
+if (blackHoleItems.length > 0) {
+    const bhObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Saat elemen masuk layar, tambahkan class .in-view
+                entry.target.classList.add('in-view');
+            } else {
+                // (Opsional) Hapus komentar di bawah jika ingin kartunya 
+                // tersedot kembali ke black hole saat Anda scroll ke atas/bawah
+                // entry.target.classList.remove('in-view');
+            }
+        });
+    }, {
+        threshold: 0.1, // Memicu saat 10% kartu mulai terlihat di layar
+        rootMargin: "0px 0px -100px 0px" // Sedikit menunda kemunculan agar pas di tengah layar
+    });
+
+    blackHoleItems.forEach((item, index) => {
+        // Memberikan delay berurutan agar kartunya keluar satu per satu
+        item.style.transitionDelay = `${index * 0.2}s`;
+        bhObserver.observe(item);
+    });
+}
