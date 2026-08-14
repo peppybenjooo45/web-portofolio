@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karya Terbaru | MyPorto</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- Efek Cahaya Latar Belakang -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[100px] opacity-30"></div>
+    </div>
+
+    <!-- Navigasi Simple -->
+    <nav class="w-full z-50 p-6 flex justify-between items-center max-w-6xl mx-auto">
+        <a href="index.html" class="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">MyPorto.</a>
+        <a href="index.html" class="text-sm font-bold text-slate-400 hover:text-white transition-colors flex items-center gap-2">
+            <span>←</span> Kembali ke Beranda
+        </a>
+    </nav>
+
+    <!-- Halaman Proyek Utama -->
+    <section class="py-12 px-6 relative min-h-[85vh] flex flex-col items-center">
+        <div class="max-w-6xl mx-auto w-full">
+            <h1 class="text-4xl md:text-5xl font-bold text-center mb-16">Karya Terbaru</h1>
+            
+            <div id="interactive-projects-container" class="relative w-full flex flex-col items-center justify-start min-h-[700px]">
+                
+                <!-- Tombol Mulai -->
+                <button id="btn-start-projects" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 absolute top-10 z-20">
+                    Tampilkan Semua Proyek Saya
+                </button>
+
+                <!-- Grid Proyek (Pola Zigzag) -->
+                <div id="projects-grid" class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 hidden opacity-0 transition-opacity duration-700">
+                    
+                    <!-- Proyek 1 -->
+                    <div id="project-1" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-1 md:self-start">
+                        <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-blue-500/50 transition-all duration-500">
+                            <div class="h-56 bg-slate-700 overflow-hidden relative flex items-center justify-center">
+                                <span class="text-slate-500 font-bold text-xl">Preview E-Commerce</span>
+                            </div>
+                            <div class="p-8">
+                                <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-bold">Next.js</span>
+                                <h3 class="text-2xl font-bold mt-4 mb-3">Toko Online Premium</h3>
+                                <p class="text-slate-400 text-sm">Sistem e-commerce dengan keranjang belanja responsif.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 2 -->
+                    <div id="project-2" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-2 md:mt-24">
+                        <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all duration-500">
+                            <div class="h-56 bg-slate-700 overflow-hidden relative flex items-center justify-center">
+                                <span class="text-slate-500 font-bold text-xl">Preview Microblog</span>
+                            </div>
+                            <div class="p-8">
+                                <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs font-bold">React</span>
+                                <h3 class="text-2xl font-bold mt-4 mb-3">Sistem Microblog</h3>
+                                <p class="text-slate-400 text-sm">Aplikasi blog menggunakan Headless CMS (Hygraph).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 3 -->
+                    <div id="project-3" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-3 md:mt-48">
+                        <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-yellow-500/50 transition-all duration-500">
+                            <div class="h-56 bg-slate-700 overflow-hidden relative flex items-center justify-center">
+                                <span class="text-slate-500 font-bold text-xl">Preview Dashboard</span>
+                            </div>
+                            <div class="p-8">
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs font-bold">API</span>
+                                <h3 class="text-2xl font-bold mt-4 mb-3">Dashboard Analytics</h3>
+                                <p class="text-slate-400 text-sm">Panel analitik grafik real-time dari REST API.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kontrol Navigasi (Next / Selesai) -->
+                <div id="project-controls" class="mt-8 md:mt-16 hidden opacity-0 transition-opacity duration-700 w-full flex justify-center z-20 absolute bottom-0 mb-10">
+                    <button id="btn-next-project" class="px-8 py-3 border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-full font-bold transition-colors duration-300">
+                        Next ➔
+                    </button>
+                    <div id="text-done" class="hidden text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 px-8 py-3">
+                        Selesai 🎉
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const btnStart = document.getElementById('btn-start-projects');
+        const projectsGrid = document.getElementById('projects-grid');
+        const controls = document.getElementById('project-controls');
+        const btnNext = document.getElementById('btn-next-project');
+        const textDone = document.getElementById('text-done');
+        
+        const projectCards = [
+            document.getElementById('project-1'),
+            document.getElementById('project-2'),
+            document.getElementById('project-3')
+        ];
+
+        let currentStep = 0;
+
+        function showNextProject() {
+            if (currentStep < projectCards.length) {
+                const card = projectCards[currentStep];
+                card.classList.remove('opacity-0', 'translate-y-10');
+                card.classList.add('opacity-100', 'translate-y-0');
+                
+                currentStep++;
+
+                if (currentStep === projectCards.length) {
+                    btnNext.classList.add('hidden');
+                    textDone.classList.remove('hidden');
+                }
+            }
+        }
+
+        if (btnStart && btnNext) {
+            btnStart.addEventListener('click', () => {
+                btnStart.classList.add('opacity-0', 'scale-90');
+                setTimeout(() => {
+                    btnStart.classList.add('hidden');
+                    projectsGrid.classList.remove('hidden');
+                    void projectsGrid.offsetWidth; 
+                    projectsGrid.classList.remove('opacity-0');
+                    
+                    controls.classList.remove('hidden');
+                    void controls.offsetWidth;
+                    controls.classList.remove('opacity-0');
+
+                    setTimeout(showNextProject, 300);
+                }, 300);
+            });
+
+            btnNext.addEventListener('click', () => {
+                showNextProject();
+                if (window.innerWidth < 768) {
+                    const latestCard = projectCards[currentStep - 1];
+                    latestCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
