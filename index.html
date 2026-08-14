@@ -287,7 +287,7 @@
 
     <!-- AOS Animation Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
+ <script>
         // Inisialisasi library animasi saat scroll (AOS)
         AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
 
@@ -302,7 +302,7 @@
         });
 
         // ============================================================
-        // MESIN FISIKA 3D LANYARD (Sangat Mulus dengan Lerp)
+        // MESIN FISIKA EFEK KARET / PEGAS (Spring Physics)
         // ============================================================
         const lanyard = document.getElementById('interactive-card');
         const joint = document.getElementById('card-joint');
@@ -310,14 +310,18 @@
         let isDragging = false;
         let originX = 0, originY = 0;
 
-        // Variabel Target (Yang dimau kursor)
+        // Target Tujuan
         let tAngle = 0, tJointAngle = 0, tTiltX = 0, tTiltY = 0;
         
-        // Variabel Saat Ini (Yang sedang dianimasikan)
+        // Posisi Saat Ini
         let cAngle = 0, cJointAngle = 0, cTiltX = 0, cTiltY = 0;
         
-        // Tingkat kelenturan (Semakin kecil semakin berat/mulus)
-        const ease = 0.08;
+        // Kecepatan Pantulan (Velocity)
+        let vAngle = 0, vJointAngle = 0, vTiltX = 0, vTiltY = 0;
+        
+        // --- PENGATURAN KARET ---
+        const tension = 0.15;  // Semakin tinggi, karet semakin keras/kaku menarik balik
+        const friction = 0.75; // Semakin rendah, karet semakin lama memantul-mantul (licin)
 
         if (lanyard && joint) {
             // Mulai Tarik
@@ -328,7 +332,7 @@
                 
                 const rect = lanyard.getBoundingClientRect();
                 originX = rect.left + (rect.width / 2);
-                originY = rect.top; // Paku keling atas
+                originY = rect.top; 
             });
 
             // Geser Kursor
@@ -338,49 +342,63 @@
                 const deltaX = e.clientX - originX;
                 const deltaY = e.clientY - originY;
                 
-                // 1. Ayunan Tali Kanan-Kiri
                 let angle = Math.atan2(deltaX, deltaY) * (180 / Math.PI);
-                angle = Math.max(-65, Math.min(65, angle)); // Batasi max kemiringan
+                angle = Math.max(-65, Math.min(65, angle)); 
+                
                 tAngle = -angle;
+                tJointAngle = angle * 0.7; // Kartu lebih menekuk ke bawah
                 
-                // 2. Gravitasi Kartu (Melawan ayunan)
-                tJointAngle = angle * 0.6;
-                
-                // 3. Tekukan 3D (Membuatnya melintir/menekuk sesuai kecepatan geser)
-                tTiltY = deltaX * 0.08; // Plintir ke samping
-                tTiltX = deltaY * 0.08; // Tekuk ke depan/belakang
+                tTiltY = deltaX * 0.1; 
+                tTiltX = deltaY * 0.1; 
             });
 
-            // Lepas Tarikan
+            // Lepas Tarikan (Karet dilepas)
             const releaseCard = () => {
                 isDragging = false;
                 document.body.style.cursor = 'default';
                 lanyard.classList.replace('cursor-grabbing', 'cursor-grab');
                 
-                // Kembalikan semua ke posisi diam (0)
+                // Set target kembali ke 0 (tengah), kecepatan (v) akan membuatnya memantul
                 tAngle = 0; tJointAngle = 0; tTiltX = 0; tTiltY = 0;
             };
 
             window.addEventListener('mouseup', releaseCard);
             window.addEventListener('mouseleave', releaseCard);
 
-            // Loop Animasi 60 FPS untuk Interpolasi Mulus (Tekuk Mulus)
+            // Loop Animasi (Menghitung gaya pantul karet)
             function animatePhysics() {
-                // Kalkulasi kelembutan (Lerp formula)
-                cAngle += (tAngle - cAngle) * ease;
-                cJointAngle += (tJointAngle - cJointAngle) * ease;
-                cTiltX += (tTiltX - cTiltX) * ease;
-                cTiltY += (tTiltY - cTiltY) * ease;
+                // 1. Hitung dorongan (Jarak ke target * Kekuatan karet)
+                let aAngle = (tAngle - cAngle) * tension;
+                let aJointAngle = (tJointAngle - cJointAngle) * tension;
+                let aTiltX = (tTiltX - cTiltX) * tension;
+                let aTiltY = (tTiltY - cTiltY) * tension;
 
-                // Terapkan ke elemen HTML
+                // 2. Tambahkan dorongan ke kecepatan saat ini
+                vAngle += aAngle;
+                vJointAngle += aJointAngle;
+                vTiltX += aTiltX;
+                vTiltY += aTiltY;
+
+                // 3. Rem kecepatan perlahan (Efek gesekan udara agar akhirnya berhenti)
+                vAngle *= friction;
+                vJointAngle *= friction;
+                vTiltX *= friction;
+                vTiltY *= friction;
+
+                // 4. Ubah posisi aktual berdasarkan kecepatan
+                cAngle += vAngle;
+                cJointAngle += vJointAngle;
+                cTiltX += vTiltX;
+                cTiltY += vTiltY;
+
+                // Terapkan ke HTML
                 lanyard.style.transform = `rotate(${cAngle}deg)`;
-                // Rotasi Z untuk gravitasi, Rotasi X dan Y untuk tekukan 3D
                 joint.style.transform = `rotateZ(${cJointAngle}deg) rotateX(${cTiltX}deg) rotateY(${cTiltY}deg)`;
 
                 requestAnimationFrame(animatePhysics);
             }
             
-            // Jalankan mesin
+            // Nyalakan mesin
             animatePhysics();
         }
     </script>
