@@ -1,16 +1,17 @@
 AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
 
+// Navbar Blur Effect
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
-        nav.classList.add('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-lg');
+        nav.classList.add('bg-[#030712]/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-xl');
     } else {
-        nav.classList.remove('bg-slate-900/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-lg');
+        nav.classList.remove('bg-[#030712]/80', 'backdrop-blur-md', 'border-b', 'border-slate-800', 'shadow-xl');
     }
 });
 
 // ============================================================
-// MESIN FISIKA EFEK KARET MELAR (Rubber Band Physics) ID CARD
+// MESIN FISIKA EFEK KARET MELAR (ID CARD)
 // ============================================================
 const lanyard = document.getElementById('interactive-card');
 const strap = document.getElementById('lanyard-strap');
@@ -107,7 +108,7 @@ if (lanyard && joint && strap) {
 }
 
 // ============================================================
-// MESIN 3D CAROUSEL AUTOPLAY (Seperti Referensi Gambar)
+// MESIN 3D CAROUSEL (CYAN & ICE BLUE ACTIVE STATE)
 // ============================================================
 const cards = document.querySelectorAll('.carousel-card');
 const titleDisplay = document.getElementById('active-title-display');
@@ -133,35 +134,38 @@ function updateCarousel() {
         card.style.opacity = '';
         card.style.filter = '';
 
-        // PERBAIKAN: Menambahkan translate(-50%, -50%) agar poros putaran tetap berada di tengah persis
         if (dist === 0) {
-            // Posisi Tengah (Aktif)
+            // Aktif Tengah
             card.style.transform = 'translate(-50%, -50%) translateX(0) scale(1)';
             card.style.zIndex = 30;
             card.style.opacity = 1;
             card.style.filter = 'blur(0px)';
             titleDisplay.innerText = card.getAttribute('data-title');
-            card.classList.replace('border-slate-700', 'border-blue-500/50');
+            card.classList.remove('border-slate-800');
+            card.classList.add('border-cyan-400', 'shadow-[0_0_30px_rgba(34,211,238,0.25)]');
         } else if (dist === 1) {
-            // Posisi Kanan (Next)
+            // Kanan
             card.style.transform = 'translate(-50%, -50%) translateX(65%) scale(0.85)';
             card.style.zIndex = 20;
-            card.style.opacity = 0.6;
+            card.style.opacity = 0.55;
             card.style.filter = 'blur(2px)';
-            card.classList.replace('border-blue-500/50', 'border-slate-700');
+            card.classList.remove('border-cyan-400', 'shadow-[0_0_30px_rgba(34,211,238,0.25)]');
+            card.classList.add('border-slate-800');
         } else if (dist === -1) {
-            // Posisi Kiri (Prev)
+            // Kiri
             card.style.transform = 'translate(-50%, -50%) translateX(-65%) scale(0.85)';
             card.style.zIndex = 20;
-            card.style.opacity = 0.6;
+            card.style.opacity = 0.55;
             card.style.filter = 'blur(2px)';
-            card.classList.replace('border-blue-500/50', 'border-slate-700');
+            card.classList.remove('border-cyan-400', 'shadow-[0_0_30px_rgba(34,211,238,0.25)]');
+            card.classList.add('border-slate-800');
         } else {
-            // Sembunyi di Belakang (Lebih dari Kiri/Kanan)
+            // Belakang
             card.style.transform = `translate(-50%, -50%) translateX(${dist > 0 ? '80%' : '-80%'}) scale(0.6)`;
             card.style.zIndex = 10;
             card.style.opacity = 0;
-            card.classList.replace('border-blue-500/50', 'border-slate-700');
+            card.classList.remove('border-cyan-400', 'shadow-[0_0_30px_rgba(34,211,238,0.25)]');
+            card.classList.add('border-slate-800');
         }
     });
 }
@@ -177,7 +181,7 @@ function prevSlide() {
 }
 
 function startAutoPlay() {
-    autoPlayInterval = setInterval(nextSlide, 3500); // Ganti slide tiap 3.5 detik
+    autoPlayInterval = setInterval(nextSlide, 3500);
 }
 
 function stopAutoPlay() {
@@ -189,58 +193,57 @@ function togglePlay() {
     if (isPlaying) {
         playIcon.innerText = '⏸';
         playText.innerText = 'PAUSE TOUR';
-        playPauseBtn.classList.replace('bg-blue-600', 'bg-pink-600');
         startAutoPlay();
     } else {
         playIcon.innerText = '▶';
         playText.innerText = 'PLAY TOUR';
-        playPauseBtn.classList.replace('bg-pink-600', 'bg-blue-600');
         stopAutoPlay();
     }
 }
 
 if (cards.length > 0) {
-    // Event Listeners
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        if(isPlaying) { stopAutoPlay(); startAutoPlay(); } // Reset timer
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        if(isPlaying) { stopAutoPlay(); startAutoPlay(); }
-    });
-    
+    nextBtn.addEventListener('click', () => { nextSlide(); if(isPlaying) { stopAutoPlay(); startAutoPlay(); } });
+    prevBtn.addEventListener('click', () => { prevSlide(); if(isPlaying) { stopAutoPlay(); startAutoPlay(); } });
     playPauseBtn.addEventListener('click', togglePlay);
-
-    // Inisialisasi awal
     updateCarousel();
     startAutoPlay();
 }
 
+// ============================================================
+// SENSOR SCROLL BLACK HOLE
+// ============================================================
+const blackHoleItems = document.querySelectorAll('.black-hole-item');
+if (blackHoleItems.length > 0) {
+    const bhObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+    }, { threshold: 0.1, rootMargin: "0px 0px -100px 0px" });
+
+    blackHoleItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.2}s`;
+        bhObserver.observe(item);
+    });
+}
 
 // ============================================================
-// PARTICLE WAVES BACKGROUND (SMOOTH CYBER BLUE & INDIGO)
+// PARTICLE WAVES THREE.JS (ELECTRIC CYAN & SKY BLUE)
 // ============================================================
 function initParticleWaves() {
     const container = document.getElementById('canvas-container');
     if (!container || typeof THREE === 'undefined') return;
-
-    // Bersihkan isi container jika sudah ada renderer sebelumnya
     container.innerHTML = '';
 
     const SEPARATION = 85, AMOUNTX = 45, AMOUNTY = 45;
     let camera, scene, renderer;
     let particles, count = 0;
 
-    // 1. Setup Kamera & Scene
     camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 1, 10000);
     camera.position.set(0, 260, 1100);
     camera.lookAt(0, 0, 0);
 
     scene = new THREE.Scene();
 
-    // 2. Setup Posisi & Skala Partikel
     const numParticles = AMOUNTX * AMOUNTY;
     const positions = new Float32Array(numParticles * 3);
     const scales = new Float32Array(numParticles);
@@ -248,9 +251,9 @@ function initParticleWaves() {
     let i = 0, j = 0;
     for (let ix = 0; ix < AMOUNTX; ix++) {
         for (let iy = 0; iy < AMOUNTY; iy++) {
-            positions[i] = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2); // X
-            positions[i + 1] = 0;                                         // Y
-            positions[i + 2] = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2); // Z
+            positions[i] = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2);
+            positions[i + 1] = 0;
+            positions[i + 2] = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2);
             scales[j] = 1;
             i += 3;
             j++;
@@ -261,32 +264,29 @@ function initParticleWaves() {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
 
-    // 3. Material Partikel: Warna Cyan-Indigo Halus
+    // Partikel Bersih Warna Cyan-Sky
     const material = new THREE.PointsMaterial({ 
-        color: 0x60a5fa, // Biru terang selaras dengan gradasi judul
+        color: 0x38bdf8, // Sky Blue terang
         size: 5,
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.8,
         blending: THREE.AdditiveBlending
     });
 
     particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // 4. Setup Renderer
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // 5. Animasi Gelombang Lebih Halus & Mengalir
     function render() {
         const pos = particles.geometry.attributes.position.array;
         let index = 0;
 
         for (let ix = 0; ix < AMOUNTX; ix++) {
             for (let iy = 0; iy < AMOUNTY; iy++) {
-                // Pergerakan gelombang sinus ganda
                 pos[index + 1] = (Math.sin((ix + count) * 0.25) * 35) + (Math.sin((iy + count) * 0.4) * 35);
                 index += 3;
             }
@@ -294,7 +294,7 @@ function initParticleWaves() {
 
         particles.geometry.attributes.position.needsUpdate = true;
         renderer.render(scene, camera);
-        count += 0.03; // Kecepatan lebih lambat agar elegan
+        count += 0.03;
     }
 
     function animate() {
@@ -302,7 +302,6 @@ function initParticleWaves() {
         render();
     }
 
-    // 6. Responsive saat resize layar
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -313,34 +312,3 @@ function initParticleWaves() {
 }
 
 document.addEventListener("DOMContentLoaded", initParticleWaves);
-
-
-
-// ============================================================
-// SENSOR SCROLL EFEK BLACK HOLE (PENGALAMAN KERJA)
-// ============================================================
-const blackHoleItems = document.querySelectorAll('.black-hole-item');
-
-if (blackHoleItems.length > 0) {
-    const bhObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Saat elemen masuk layar, tambahkan class .in-view
-                entry.target.classList.add('in-view');
-            } else {
-                // (Opsional) Hapus komentar di bawah jika ingin kartunya 
-                // tersedot kembali ke black hole saat Anda scroll ke atas/bawah
-                // entry.target.classList.remove('in-view');
-            }
-        });
-    }, {
-        threshold: 0.1, // Memicu saat 10% kartu mulai terlihat di layar
-        rootMargin: "0px 0px -100px 0px" // Sedikit menunda kemunculan agar pas di tengah layar
-    });
-
-    blackHoleItems.forEach((item, index) => {
-        // Memberikan delay berurutan agar kartunya keluar satu per satu
-        item.style.transitionDelay = `${index * 0.2}s`;
-        bhObserver.observe(item);
-    });
-}
