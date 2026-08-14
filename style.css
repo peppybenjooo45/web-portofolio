@@ -1,19 +1,40 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    overflow-x: hidden;
+}
 
-/* style.css */
-body { font-family: 'Poppins', sans-serif; background-color: #0f172a; color: #f8fafc; overflow-x: hidden; }
-.blob { animation: float 6s ease-in-out infinite; }
-.blob-delayed { animation: float 6s ease-in-out 3s infinite; }
+/* Animasi Mengambang (Floating) */
+.blob {
+    animation: float 6s ease-in-out infinite;
+}
+.blob-delayed {
+    animation: float 6s ease-in-out 3s infinite;
+}
 @keyframes float {
     0% { transform: translateY(0px) scale(1); }
     50% { transform: translateY(-20px) scale(1.05); }
     100% { transform: translateY(0px) scale(1); }
 }
+
+/* Animasi Mengetik */
 .typewriter-text {
-    border-right: 4px solid #3b82f6; white-space: nowrap; overflow: hidden;
+    border-right: 4px solid #3b82f6;
+    white-space: nowrap;
+    overflow: hidden;
     animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
 }
-@keyframes typing { from { width: 0; } to { width: 100%; } }
-@keyframes blink-caret { from, to { border-color: transparent; } 50% { border-color: #3b82f6; } }
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #3b82f6; }
+}
+
+/* Kustom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0f172a; }
 ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
