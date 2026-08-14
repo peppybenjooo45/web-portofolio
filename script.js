@@ -107,59 +107,116 @@ if (lanyard && joint && strap) {
 }
 
 // ============================================================
-// LOGIKA INTERAKTIF PROYEK (Tampil Satu Per Satu / Pola Tangga)
+// MESIN 3D CAROUSEL AUTOPLAY (Seperti Referensi Gambar)
 // ============================================================
-const btnStart = document.getElementById('btn-start-projects');
-const projectsGrid = document.getElementById('projects-grid');
-const controls = document.getElementById('project-controls');
-const btnNext = document.getElementById('btn-next-project');
-const textDone = document.getElementById('text-done');
+const cards = document.querySelectorAll('.carousel-card');
+const titleDisplay = document.getElementById('active-title-display');
+const playPauseBtn = document.getElementById('carousel-play-pause');
+const playIcon = document.getElementById('play-icon');
+const playText = document.getElementById('play-text');
+const prevBtn = document.getElementById('carousel-prev');
+const nextBtn = document.getElementById('carousel-next');
 
-const projectCards = [
-    document.getElementById('project-1'),
-    document.getElementById('project-2'),
-    document.getElementById('project-3')
-];
+let currentIndex = 0;
+let isPlaying = true;
+let autoPlayInterval;
+const totalCards = cards.length;
 
-let currentStep = 0;
-
-function showNextProject() {
-    if (currentStep < projectCards.length) {
-        const card = projectCards[currentStep];
-        card.classList.remove('opacity-0', 'translate-y-10');
-        card.classList.add('opacity-100', 'translate-y-0');
+function updateCarousel() {
+    cards.forEach((card, index) => {
+        // Hitung jarak index kartu relatif terhadap kartu yang sedang aktif
+        let dist = index - currentIndex;
         
-        currentStep++;
+        // Memastikan perputaran (looping) array agar kartu tidak terputus
+        if (dist < -Math.floor(totalCards / 2)) dist += totalCards;
+        if (dist > Math.floor(totalCards / 2)) dist -= totalCards;
 
-        if (currentStep === projectCards.length) {
-            btnNext.classList.add('hidden');
-            textDone.classList.remove('hidden');
+        // Reset gaya dasar
+        card.style.transform = '';
+        card.style.zIndex = '';
+        card.style.opacity = '';
+        card.style.filter = '';
+
+        if (dist === 0) {
+            // Posisi Tengah (Aktif)
+            card.style.transform = 'translateX(0) scale(1)';
+            card.style.zIndex = 30;
+            card.style.opacity = 1;
+            card.style.filter = 'blur(0px)';
+            titleDisplay.innerText = card.getAttribute('data-title');
+            card.classList.replace('border-slate-700', 'border-blue-500/50');
+        } else if (dist === 1) {
+            // Posisi Kanan (Next)
+            card.style.transform = 'translateX(65%) scale(0.85)';
+            card.style.zIndex = 20;
+            card.style.opacity = 0.6;
+            card.style.filter = 'blur(2px)';
+            card.classList.replace('border-blue-500/50', 'border-slate-700');
+        } else if (dist === -1) {
+            // Posisi Kiri (Prev)
+            card.style.transform = 'translateX(-65%) scale(0.85)';
+            card.style.zIndex = 20;
+            card.style.opacity = 0.6;
+            card.style.filter = 'blur(2px)';
+            card.classList.replace('border-blue-500/50', 'border-slate-700');
+        } else {
+            // Sembunyi di Belakang (Lebih dari Kiri/Kanan)
+            card.style.transform = `translateX(${dist > 0 ? '80%' : '-80%'}) scale(0.6)`;
+            card.style.zIndex = 10;
+            card.style.opacity = 0;
+            card.classList.replace('border-blue-500/50', 'border-slate-700');
         }
+    });
+}
+
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalCards;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    updateCarousel();
+}
+
+function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 3500); // Ganti slide tiap 3.5 detik
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlayInterval);
+}
+
+function togglePlay() {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+        playIcon.innerText = '⏸';
+        playText.innerText = 'PAUSE TOUR';
+        playPauseBtn.classList.replace('bg-blue-600', 'bg-pink-600');
+        startAutoPlay();
+    } else {
+        playIcon.innerText = '▶';
+        playText.innerText = 'PLAY TOUR';
+        playPauseBtn.classList.replace('bg-pink-600', 'bg-blue-600');
+        stopAutoPlay();
     }
 }
 
-if (btnStart && btnNext) {
-    btnStart.addEventListener('click', () => {
-        btnStart.classList.add('opacity-0', 'scale-90');
-        setTimeout(() => {
-            btnStart.classList.add('hidden');
-            projectsGrid.classList.remove('hidden');
-            void projectsGrid.offsetWidth; 
-            projectsGrid.classList.remove('opacity-0');
-            
-            controls.classList.remove('hidden');
-            void controls.offsetWidth;
-            controls.classList.remove('opacity-0');
-
-            setTimeout(showNextProject, 300);
-        }, 300);
+if (cards.length > 0) {
+    // Event Listeners
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        if(isPlaying) { stopAutoPlay(); startAutoPlay(); } // Reset timer
     });
-
-    btnNext.addEventListener('click', () => {
-        showNextProject();
-        if (window.innerWidth < 768) {
-            const latestCard = projectCards[currentStep - 1];
-            latestCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+    
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        if(isPlaying) { stopAutoPlay(); startAutoPlay(); }
     });
+    
+    playPauseBtn.addEventListener('click', togglePlay);
+
+    // Inisialisasi awal
+    updateCarousel();
+    startAutoPlay();
 }
