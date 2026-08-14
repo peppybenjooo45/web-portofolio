@@ -161,44 +161,118 @@
 
                 </div>
 
-                <!-- Bagian Bawah: Teknologi yang Saya Kuasai -->
-                <div class="border-t border-white/10 pt-12">
+               <!-- Bagian Bawah: Teknologi yang Saya Kuasai (Marquee Berjalan) -->
+                <div class="border-t border-white/10 pt-12 pb-8 overflow-hidden">
                     <h3 class="text-2xl font-bold text-center mb-10 text-white">Teknologi yang Saya Kuasai</h3>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <!-- Skill 1 -->
-                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-blue-500/50 group" data-aos="flip-left" data-aos-delay="100">
-                            <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg>
+                    <!-- BARIS 1: Bergerak ke Kiri -->
+                    <div class="relative flex w-full overflow-hidden mb-6 mask-marquee">
+                        <!-- Wrapper animasi (w-max memastikan lebarnya menyesuaikan konten ganda) -->
+                        <div class="flex w-max animate-marquee-left">
+                            
+                            <!-- SET 1 (Kumpulan Kartu Pertama) -->
+                            <div class="flex gap-6 pr-6">
+                                <!-- Card Next.js -->
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center transition-all duration-300 hover:border-blue-500 hover:shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                                        <svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">Next.js</h4>
+                                </div>
+                                <!-- Card Tailwind -->
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center transition-all duration-300 hover:border-teal-500 hover:shadow-[0_0_15px_rgba(20,184,166,0.3)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center">
+                                        <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">Tailwind CSS</h4>
+                                </div>
+                                <!-- Card JavaScript -->
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center transition-all duration-300 hover:border-yellow-500 hover:shadow-[0_0_15px_rgba(234,179,8,0.3)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center">
+                                        <svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">JavaScript ES6+</h4>
+                                </div>
+                                <!-- Card UI/UX -->
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center transition-all duration-300 hover:border-purple-500 hover:shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">UI/UX Anim</h4>
+                                </div>
+                                <!-- Card React (Tambahan) -->
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center transition-all duration-300 hover:border-cyan-500 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 font-bold text-xl">Re</div>
+                                    <h4 class="font-bold text-white">React JS</h4>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-lg text-white">Next.js</h4>
+
+                            <!-- SET 2 (Copy Paste dari SET 1 untuk Seamless Loop) -->
+                            <div class="flex gap-6 pr-6">
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg></div><h4 class="font-bold text-white">Next.js</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-teal-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h4 class="font-bold text-white">Tailwind CSS</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-yellow-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h4 class="font-bold text-white">JavaScript ES6+</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-purple-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg></div><h4 class="font-bold text-white">UI/UX Anim</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-cyan-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 font-bold text-xl">Re</div><h4 class="font-bold text-white">React JS</h4>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Skill 2 -->
-                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-teal-500/50 group" data-aos="flip-left" data-aos-delay="200">
-                            <div class="w-16 h-16 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    </div>
+
+                    <!-- BARIS 2: Bergerak ke Kanan (Berlawanan Arah) -->
+                    <div class="relative flex w-full overflow-hidden mask-marquee">
+                        <div class="flex w-max animate-marquee-right">
+                            
+                            <!-- SET 1 (Baris Bawah) -->
+                            <div class="flex gap-6 pr-6">
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-green-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-green-500/20 rounded-xl flex items-center justify-center text-green-400 font-bold text-xl">No</div><h4 class="font-bold text-white">Node.js</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-pink-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-pink-500/20 rounded-xl flex items-center justify-center text-pink-400 font-bold text-xl">Fg</div><h4 class="font-bold text-white">Figma</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-orange-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 font-bold text-xl">Git</div><h4 class="font-bold text-white">Git & GitHub</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-400/20 rounded-xl flex items-center justify-center text-blue-400 font-bold text-xl">TS</div><h4 class="font-bold text-white">TypeScript</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-red-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-red-500/20 rounded-xl flex items-center justify-center text-red-400 font-bold text-xl">API</div><h4 class="font-bold text-white">RESTful API</h4>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-lg text-white">Tailwind CSS</h4>
-                        </div>
-                        <!-- Skill 3 -->
-                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-yellow-500/50 group" data-aos="flip-left" data-aos-delay="300">
-                            <div class="w-16 h-16 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+
+                            <!-- SET 2 (Copy Paste dari SET 1 Baris Bawah) -->
+                            <div class="flex gap-6 pr-6">
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-green-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-green-500/20 rounded-xl flex items-center justify-center text-green-400 font-bold text-xl">No</div><h4 class="font-bold text-white">Node.js</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-pink-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-pink-500/20 rounded-xl flex items-center justify-center text-pink-400 font-bold text-xl">Fg</div><h4 class="font-bold text-white">Figma</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-orange-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 font-bold text-xl">Git</div><h4 class="font-bold text-white">Git & GitHub</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-400/20 rounded-xl flex items-center justify-center text-blue-400 font-bold text-xl">TS</div><h4 class="font-bold text-white">TypeScript</h4>
+                                </div>
+                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-red-500 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-red-500/20 rounded-xl flex items-center justify-center text-red-400 font-bold text-xl">API</div><h4 class="font-bold text-white">RESTful API</h4>
+                                </div>
                             </div>
-                            <h4 class="font-bold text-lg text-white">JavaScript ES6+</h4>
-                        </div>
-                        <!-- Skill 4 -->
-                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-purple-500/50 group" data-aos="flip-left" data-aos-delay="400">
-                            <div class="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                            </div>
-                            <h4 class="font-bold text-lg text-white">UI/UX Animation</h4>
+
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
     </section>
   <!-- Proyek (3D Carousel Autoplay) -->
     <section id="projects" class="py-24 px-6 relative min-h-[90vh] flex flex-col items-center overflow-hidden">
