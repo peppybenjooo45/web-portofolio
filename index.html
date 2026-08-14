@@ -142,19 +142,22 @@
         </div>
     </section>
 
-    <!-- Proyek (Interaktif Bertahap / Pola Zigzag) -->
+   <!-- Proyek (Interaktif Bertahap / Pola Zigzag) -->
     <section id="projects" class="py-24 px-6 relative min-h-[90vh] flex flex-col items-center">
-        <div class="max-w-6xl mx-auto w-full">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Karya Terbaru</h2>
+        <div class="max-w-6xl mx-auto w-full text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" data-aos="fade-up">Karya Terbaru</h2>
             
-            <div id="interactive-projects-container" class="relative w-full flex flex-col items-center justify-start min-h-[650px]">
+            <div id="interactive-projects-container" class="relative w-full flex flex-col items-center justify-start">
                 
-                <button id="btn-start-projects" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 absolute top-10 z-20">
+                <!-- Tombol Mulai (Diubah menjadi relative agar aman dan tidak tertindih) -->
+                <button id="btn-start-projects" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 z-20 mb-12 cursor-pointer">
                     Tampilkan Semua Proyek Saya
                 </button>
 
-                <div id="projects-grid" class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 hidden opacity-0 transition-opacity duration-700">
+                <!-- Grid Proyek (Pola Zigzag Tangga) -->
+                <div id="projects-grid" class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 hidden opacity-0 transition-opacity duration-700 text-left">
                     
+                    <!-- Kartu Proyek 1 (Kiri Atas) -->
                     <div id="project-1" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-1 md:self-start">
                         <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
                             <div class="h-56 bg-slate-700 overflow-hidden relative">
@@ -177,6 +180,7 @@
                         </div>
                     </div>
 
+                    <!-- Kartu Proyek 2 (Tengah - Agak ke Bawah) -->
                     <div id="project-2" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-2 md:mt-24">
                         <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
                             <div class="h-56 bg-slate-700 overflow-hidden relative">
@@ -199,6 +203,7 @@
                         </div>
                     </div>
 
+                    <!-- Kartu Proyek 3 (Kanan - Paling Bawah) -->
                     <div id="project-3" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-3 md:mt-48">
                         <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-yellow-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
                             <div class="h-56 bg-slate-700 overflow-hidden relative">
@@ -223,8 +228,9 @@
 
                 </div>
 
-                <div id="project-controls" class="mt-8 md:mt-16 hidden opacity-0 transition-opacity duration-700 w-full flex justify-center z-20 absolute bottom-0 mb-6">
-                    <button id="btn-next-project" class="px-8 py-3 border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-full font-bold transition-colors duration-300 shadow-lg">
+                <!-- Kontrol Navigasi (Next / Selesai) -->
+                <div id="project-controls" class="mt-12 hidden opacity-0 transition-opacity duration-700 w-full flex justify-center z-20">
+                    <button id="btn-next-project" class="px-8 py-3 border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-full font-bold transition-colors duration-300 shadow-lg cursor-pointer">
                         Next ➔
                     </button>
                     <div id="text-done" class="hidden text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 px-8 py-3">
