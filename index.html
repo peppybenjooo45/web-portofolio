@@ -3,92 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Interaktif</title>
+    <title>Portofolio Interaktif - M. Nindyawan Febrianto</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- AOS Animation CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <!-- File CSS Eksternal -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased selection:bg-blue-500 selection:text-white">
+<body class="antialiased selection:bg-cyan-500 selection:text-black bg-[#030712] text-slate-100">
 
-<!-- Efek Latar Belakang Modern (Ambient Spotlight + Cyber Particles + Mesh) -->
-    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 bg-[#06080e]">
+    <!-- Efek Latar Belakang Modern (Ambient Spotlight + Cyan/Blue Particles + Micro Grid) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 bg-[#030712]">
         <!-- Tempat Canvas Three.js Partikel -->
         <div id="canvas-container" class="absolute inset-0 pointer-events-none opacity-60"></div>
 
-        <!-- Spotlight Tengah (Memberi kedalaman di belakang Teks Hero & ID Card) -->
-        <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-[40rem] md:w-[60rem] h-[25rem] bg-gradient-to-b from-blue-600/15 via-purple-600/10 to-transparent rounded-full blur-[130px] pointer-events-none"></div>
+        <!-- Spotlight Tengah (Putih & Sky Blue Glow di Belakang Teks Hero) -->
+        <div class="absolute top-[12%] left-1/2 -translate-x-1/2 w-[35rem] md:w-[60rem] h-[26rem] bg-gradient-to-b from-white/10 via-sky-500/10 to-transparent rounded-full blur-[140px] pointer-events-none"></div>
 
-        <!-- Cahaya Ambient Kiri Atas (Biru Halus) -->
-        <div class="absolute -top-[15%] -left-[10%] w-[35rem] h-[35rem] bg-blue-700/15 rounded-full blur-[140px] pointer-events-none blob"></div>
+        <!-- Ambient Kiri Atas (Deep Blue) -->
+        <div class="absolute -top-[15%] -left-[10%] w-[35rem] h-[35rem] bg-blue-600/15 rounded-full blur-[150px] pointer-events-none blob"></div>
 
-        <!-- Cahaya Ambient Kanan Bawah (Ungu Violet) -->
-        <div class="absolute -bottom-[15%] -right-[10%] w-[40rem] h-[40rem] bg-purple-700/15 rounded-full blur-[150px] pointer-events-none blob-delayed"></div>
+        <!-- Ambient Kanan Bawah (Cyan Glow) -->
+        <div class="absolute -bottom-[15%] -right-[10%] w-[40rem] h-[40rem] bg-cyan-600/15 rounded-full blur-[160px] pointer-events-none blob-delayed"></div>
 
-        <!-- Tekstur Grid Titik Halus (Sentuhan ala Vercel / Next.js) -->
-        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_35%,#000_60%,transparent_100%)] pointer-events-none"></div>
+        <!-- Tekstur Grid Titik Halus (Vercel Style) -->
+        <div class="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:28px_28px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_35%,#000_60%,transparent_100%)] pointer-events-none"></div>
     </div>
 
     <!-- Navigasi -->
     <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">MyPorto.</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="hover:text-blue-400 transition">Beranda</a>
-                <a href="#about" class="hover:text-purple-400 transition">Tentang</a>
-                <a href="#projects" class="hover:text-blue-400 transition">Proyek</a>
-                <a href="#contact" class="px-5 py-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition border border-white/10">Kontak</a>
+            <a href="#" class="text-2xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-sky-400">
+                MyPorto<span class="text-cyan-400">.</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-cyan-400 transition-colors">Beranda</a>
+                <a href="#about" class="hover:text-cyan-400 transition-colors">Tentang</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Pengalaman</a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Proyek</a>
+                <a href="#contact" class="px-5 py-2 bg-white/10 hover:bg-white/20 text-white rounded-full backdrop-blur-md transition-all border border-white/15 hover:border-cyan-400/40">Kontak</a>
             </div>
         </div>
     </nav>
 
     <!-- Beranda / Hero Section -->
-   <!-- Beranda / Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative">
         
         <!-- ID Card 3D Fisika Karet -->
         <div class="absolute top-0 left-12 md:left-32 lg:left-48 z-10 hidden sm:flex" style="perspective: 1000px;">
             <div id="interactive-card" class="flex flex-col items-center cursor-grab" style="transform-origin: top center; transform-style: preserve-3d;">
                 
-                <div id="lanyard-strap" class="w-6 h-20 md:h-28 bg-white border-x-2 border-gray-200 pointer-events-none relative shadow-sm flex flex-col items-center justify-end pb-1" style="transform-origin: top center;">
-                    <div class="w-2 h-2 rounded-full bg-gray-300 shadow-sm border border-gray-400"></div>
+                <div id="lanyard-strap" class="w-6 h-20 md:h-28 bg-white border-x-2 border-slate-200 pointer-events-none relative shadow-sm flex flex-col items-center justify-end pb-1" style="transform-origin: top center;">
+                    <div class="w-2 h-2 rounded-full bg-slate-400 shadow-sm border border-slate-300"></div>
                 </div>
                 
                 <div id="card-joint" class="flex flex-col items-center w-full" style="transform-origin: top center; transform-style: preserve-3d;">
                     <div class="pointer-events-none flex flex-col items-center -mt-1 z-10">
-                        <div class="w-10 h-5 border-4 border-gray-300 border-t-0 rounded-b-lg shadow-[0_2px_4px_rgba(0,0,0,0.1)]"></div>
-                        <div class="w-3 h-6 bg-gradient-to-b from-gray-200 to-gray-400 border border-gray-400 rounded-sm shadow-md -mt-1"></div>
-                        <div class="w-5 h-5 border-4 border-gray-300 rounded-full shadow-sm -mt-2 bg-white"></div>
+                        <div class="w-10 h-5 border-4 border-slate-300 border-t-0 rounded-b-lg shadow-[0_2px_4px_rgba(0,0,0,0.1)]"></div>
+                        <div class="w-3 h-6 bg-gradient-to-b from-slate-200 to-slate-400 border border-slate-400 rounded-sm shadow-md -mt-1"></div>
+                        <div class="w-5 h-5 border-4 border-slate-300 rounded-full shadow-sm -mt-2 bg-white"></div>
                     </div>
                     
-                    <div class="bg-white w-56 h-80 rounded-xl shadow-[0_15px_35px_rgba(0,0,0,0.3)] flex flex-col items-center overflow-hidden border border-gray-200 -mt-3 select-none pointer-events-none">
-                        <div class="w-full h-24 bg-blue-600 relative overflow-hidden">
+                    <div class="bg-white w-56 h-80 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col items-center overflow-hidden border border-slate-200 -mt-3 select-none pointer-events-none">
+                        <div class="w-full h-24 bg-gradient-to-r from-blue-600 to-cyan-500 relative overflow-hidden">
                             <div class="absolute -right-8 -bottom-12 w-40 h-40 bg-white rounded-full"></div>
-                            <div class="absolute -left-4 -top-8 w-24 h-24 bg-blue-500 rounded-full opacity-80"></div>
+                            <div class="absolute -left-4 -top-8 w-24 h-24 bg-sky-400 rounded-full opacity-80"></div>
                         </div>
                         
-                      <div class="w-24 h-24 bg-slate-100 rounded-full border-[5px] border-white shadow-sm -mt-12 overflow-hidden z-10 flex items-center justify-center bg-cover bg-center" style="background-image: url('foto.png');">
-</div>
+                        <div class="w-24 h-24 bg-slate-100 rounded-full border-[5px] border-white shadow-sm -mt-12 overflow-hidden z-10 flex items-center justify-center bg-cover bg-center" style="background-image: url('foto-saya.jpg');">
+                        </div>
                         
                         <div class="text-center mt-2 px-4 w-full">
-                            <h3 class="text-lg font-bold text-gray-800 leading-tight">M. Nindyawan Febrianto</h3>
-                            <p class="text-sm text-gray-500 mt-0.5">IT Support & Web Dev</p>
+                            <h3 class="text-base font-bold text-slate-900 leading-tight">M. Nindyawan Febrianto</h3>
+                            <p class="text-xs text-slate-500 mt-0.5">IT Support & Web Dev</p>
                             
-                            <div class="mt-4 pt-4 w-full text-center">
-                                <p class="text-[9px] text-gray-400 font-bold mb-1 uppercase tracking-wider">UDINUS Alumni</p>
-                                <p class="text-xs font-mono text-gray-700 font-bold tracking-widest">2018.2023</p>
+                            <div class="mt-4 pt-3 border-t border-slate-100 w-full text-center">
+                                <p class="text-[9px] text-slate-400 font-bold mb-0.5 uppercase tracking-wider">UDINUS Alumni</p>
+                                <p class="text-xs font-mono text-slate-700 font-bold tracking-widest">2018 - 2023</p>
                             </div>
                             
-                            <div class="flex justify-center gap-[2px] mt-2 h-8 w-full px-6">
-                                <div class="w-1 h-full bg-gray-900"></div><div class="w-2 h-full bg-gray-900"></div>
-                                <div class="w-1 h-full bg-gray-900"></div><div class="w-[2px] h-full bg-gray-900"></div>
-                                <div class="w-[2px] h-full bg-gray-900"></div><div class="w-1.5 h-full bg-gray-900"></div>
-                                <div class="w-2 h-full bg-gray-900"></div><div class="w-[2px] h-full bg-gray-900"></div>
-                                <div class="w-1 h-full bg-gray-900"></div><div class="w-[3px] h-full bg-gray-900"></div>
+                            <div class="flex justify-center gap-[2px] mt-2 h-7 w-full px-6 opacity-75">
+                                <div class="w-1 h-full bg-slate-900"></div><div class="w-2 h-full bg-slate-900"></div>
+                                <div class="w-1 h-full bg-slate-900"></div><div class="w-[2px] h-full bg-slate-900"></div>
+                                <div class="w-[2px] h-full bg-slate-900"></div><div class="w-1.5 h-full bg-slate-900"></div>
+                                <div class="w-2 h-full bg-slate-900"></div><div class="w-[2px] h-full bg-slate-900"></div>
+                                <div class="w-1 h-full bg-slate-900"></div><div class="w-[3px] h-full bg-slate-900"></div>
                             </div>
                         </div>
                     </div>
@@ -96,24 +98,28 @@
             </div>
         </div>
 
+        <!-- Konten Hero Teks -->
         <div class="text-center max-w-3xl" data-aos="zoom-in" data-aos-duration="1200">
-            <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-semibold tracking-wide backdrop-blur-md">
+            <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-sky-400/30 bg-sky-500/10 text-sky-300 text-xs md:text-sm font-semibold tracking-wide backdrop-blur-md">
                 Halo, Selamat Datang! 👋
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-                IT Support & <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 inline-block typewriter-text max-w-fit mx-auto">
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
+                <span class="text-white">IT Support &</span> <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-cyan-400 inline-block typewriter-text max-w-fit mx-auto">
                     Full-Stack Developer.
                 </span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+            
+            <p class="text-base md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="400">
                 Memadukan keahlian pemeliharaan infrastruktur jaringan dengan pengembangan aplikasi web modern berbasis AI.
             </p>
+            
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
-                <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all duration-300">
+                <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-white via-slate-100 to-sky-200 text-slate-950 rounded-full font-bold hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] hover:-translate-y-1 transition-all duration-300">
                     Lihat Karya Saya
                 </a>
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 hover:border-cyan-400/40 text-white rounded-full font-bold hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
                     Hubungi Saya
                 </a>
             </div>
@@ -123,88 +129,89 @@
     <!-- Tentang / Keahlian -->
     <section id="about" class="py-24 px-6 relative">
         <div class="max-w-6xl mx-auto">
-            <div class="bg-slate-800/40 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.3)]" data-aos="fade-up">
+            <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 p-8 md:p-12 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)]" data-aos="fade-up">
                 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
                     <div class="lg:col-span-4 flex justify-center">
                         <div class="relative group">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-70 group-hover:opacity-100 transition duration-500"></div>
-                           <div class="relative w-64 h-80 md:w-72 md:h-96 bg-slate-800 rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center bg-cover bg-center shadow-2xl" style="background-image: url('foto.png');">
-    <span class="absolute bottom-5 px-5 py-2 bg-slate-900/80 backdrop-blur-md text-sm font-bold text-blue-400 rounded-full border border-white/10">
-        Teknik Informatika '23
-    </span>
-</div>
+                            <!-- Efek Glow Putih-Biru di Belakang Foto -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 via-cyan-400 to-white/40 rounded-3xl blur-lg opacity-40 group-hover:opacity-80 transition duration-500"></div>
+                            
+                            <div class="relative w-64 h-80 md:w-72 md:h-96 bg-slate-950 rounded-2xl overflow-hidden border border-slate-700/80 flex items-center justify-center bg-cover bg-center shadow-2xl" style="background-image: url('foto-saya.jpg');">
+                                <span class="absolute bottom-5 px-5 py-2 bg-slate-950/90 backdrop-blur-md text-xs md:text-sm font-bold text-cyan-300 rounded-full border border-cyan-500/30 shadow-lg">
+                                    Teknik Informatika '23
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="lg:col-span-8 text-left">
-                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-sky-400">
                             Tentang Saya
                         </h2>
                         <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-4">
                             Halo! Saya <span class="text-white font-semibold">M. Nindyawan Febrianto</span>, seorang profesional IT yang disiplin dan bertanggung jawab. Saya merupakan lulusan S1 Teknik Informatika dari Universitas Dian Nuswantoro.
                         </p>
                         <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
-                            Saya memiliki rekam jejak yang kuat dalam pengelolaan IT Support, penyelesaian masalah hardware, serta infrastruktur jaringan. Di sisi lain, saya memiliki antusiasme besar dalam pengembangan ekosistem Web (Full-Stack). Saya memanfaatkan <em>Prompt Engineering</em> dan <em>AI-Assisted Development</em> untuk mengakselerasi perancangan UI/UX, penulisan kode, hingga arsitektur database kompleks.
+                            Saya memiliki rekam jejak yang kuat dalam pengelolaan IT Support, penyelesaian masalah hardware, serta infrastruktur jaringan. Di sisi lain, saya memiliki antusiasme besar dalam pengembangan ekosistem Web (Full-Stack). Saya memanfaatkan <em class="text-sky-300 not-italic font-medium">Prompt Engineering</em> dan <em class="text-cyan-300 not-italic font-medium">AI-Assisted Development</em> untuk mengakselerasi perancangan UI/UX, penulisan kode, hingga arsitektur database kompleks.
                         </p>
-                        <div class="flex flex-wrap gap-4 text-sm text-slate-300">
-                            <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">
-                                <span class="w-2 h-2 rounded-full bg-blue-500"></span> Semarang, Indonesia
+                        <div class="flex flex-wrap gap-4 text-xs md:text-sm text-slate-300">
+                            <div class="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]"></span> Semarang, Indonesia
                             </div>
-                            <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">
-                                <span class="w-2 h-2 rounded-full bg-green-500"></span> Siap Bekerja
+                            <div class="flex items-center gap-2 bg-slate-800/80 px-4 py-2 rounded-xl border border-slate-700">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span> Siap Bekerja
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bagian Bawah: Teknologi (Marquee) -->
-                <div class="border-t border-white/10 pt-12 pb-8 overflow-hidden">
+                <!-- Bagian Bawah: Teknologi (Marquee Bersih) -->
+                <div class="border-t border-slate-800/80 pt-12 pb-4 overflow-hidden">
                     <h3 class="text-2xl font-bold text-center mb-10 text-white">Teknologi & Keahlian</h3>
                     
                     <!-- BARIS 1: Bergerak ke Kiri -->
                     <div class="relative flex w-full overflow-hidden mb-6 mask-marquee">
                         <div class="flex w-max animate-marquee-left">
-                            <!-- SET 1 -->
                             <div class="flex gap-6 pr-6">
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-orange-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 font-bold text-xl">HT</div><h4 class="font-bold text-white">HTML5</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-sky-400 transition-all hover:shadow-[0_0_20px_rgba(56,189,248,0.25)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-300 font-bold text-xl">HT</div><h4 class="font-bold text-white">HTML5</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-400 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-400/20 rounded-xl flex items-center justify-center text-blue-400 font-bold text-xl">CS</div><h4 class="font-bold text-white">CSS3</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-400 transition-all hover:shadow-[0_0_20px_rgba(34,211,238,0.25)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-300 font-bold text-xl">CS</div><h4 class="font-bold text-white">CSS3</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-yellow-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h4 class="font-bold text-white">JavaScript</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-blue-400 transition-all hover:shadow-[0_0_20px_rgba(96,165,250,0.25)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-300 font-bold text-xl">JS</div><h4 class="font-bold text-white">JavaScript</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-indigo-400 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-indigo-400/20 rounded-xl flex items-center justify-center text-indigo-400 font-bold text-xl">PH</div><h4 class="font-bold text-white">PHP</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-sky-300 transition-all hover:shadow-[0_0_20px_rgba(125,211,252,0.25)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-sky-400/10 rounded-xl flex items-center justify-center text-sky-200 font-bold text-xl">PH</div><h4 class="font-bold text-white">PHP</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-cyan-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 font-bold text-xl">DB</div><h4 class="font-bold text-white">Database SQL</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-300 transition-all hover:shadow-[0_0_20px_rgba(103,232,249,0.25)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-400/10 rounded-xl flex items-center justify-center text-cyan-200 font-bold text-xl">DB</div><h4 class="font-bold text-white">Database SQL</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-purple-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 font-bold text-xl">AI</div><h4 class="font-bold text-white">Prompt Eng.</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-white transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.25)]">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center text-white font-bold text-xl">AI</div><h4 class="font-bold text-white">Prompt Eng.</h4>
                                 </div>
                             </div>
-                            <!-- SET 2 (Clone untuk Seamless Loop) -->
+                            <!-- Duplikat untuk Seamless Loop -->
                             <div class="flex gap-6 pr-6">
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-orange-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 font-bold text-xl">HT</div><h4 class="font-bold text-white">HTML5</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-sky-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-300 font-bold text-xl">HT</div><h4 class="font-bold text-white">HTML5</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-400 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-400/20 rounded-xl flex items-center justify-center text-blue-400 font-bold text-xl">CS</div><h4 class="font-bold text-white">CSS3</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-300 font-bold text-xl">CS</div><h4 class="font-bold text-white">CSS3</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-yellow-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h4 class="font-bold text-white">JavaScript</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-blue-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-300 font-bold text-xl">JS</div><h4 class="font-bold text-white">JavaScript</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-indigo-400 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-indigo-400/20 rounded-xl flex items-center justify-center text-indigo-400 font-bold text-xl">PH</div><h4 class="font-bold text-white">PHP</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-sky-300 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-sky-400/10 rounded-xl flex items-center justify-center text-sky-200 font-bold text-xl">PH</div><h4 class="font-bold text-white">PHP</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-cyan-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/20 rounded-xl flex items-center justify-center text-cyan-400 font-bold text-xl">DB</div><h4 class="font-bold text-white">Database SQL</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-300 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-400/10 rounded-xl flex items-center justify-center text-cyan-200 font-bold text-xl">DB</div><h4 class="font-bold text-white">Database SQL</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-purple-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 font-bold text-xl">AI</div><h4 class="font-bold text-white">Prompt Eng.</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-white transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center text-white font-bold text-xl">AI</div><h4 class="font-bold text-white">Prompt Eng.</h4>
                                 </div>
                             </div>
                         </div>
@@ -213,129 +220,129 @@
                     <!-- BARIS 2: Bergerak ke Kanan -->
                     <div class="relative flex w-full overflow-hidden mask-marquee">
                         <div class="flex w-max animate-marquee-right">
-                            <!-- SET 1 -->
                             <div class="flex gap-6 pr-6">
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-pink-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-pink-500/20 rounded-xl flex items-center justify-center text-pink-400 font-bold text-xl">AD</div><h4 class="font-bold text-white">AI-Assisted Dev</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-300 font-bold text-xl">AD</div><h4 class="font-bold text-white">AI-Assisted Dev</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg></div><h4 class="font-bold text-white">Next.js</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-sky-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-sky-500/10 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-sky-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg></div><h4 class="font-bold text-white">Next.js</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-teal-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h4 class="font-bold text-white">Tailwind CSS</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-teal-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-teal-500/10 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h4 class="font-bold text-white">Tailwind CSS</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-green-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-green-500/20 rounded-xl flex items-center justify-center text-green-400 font-bold text-xl">IT</div><h4 class="font-bold text-white">IT Support</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-blue-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-300 font-bold text-xl">IT</div><h4 class="font-bold text-white">IT Support</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-red-400 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-red-400/20 rounded-xl flex items-center justify-center text-red-400 font-bold text-xl">NW</div><h4 class="font-bold text-white">Networking</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-slate-300 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-slate-400/10 rounded-xl flex items-center justify-center text-slate-200 font-bold text-xl">NW</div><h4 class="font-bold text-white">Networking</h4>
                                 </div>
                             </div>
-                            <!-- SET 2 (Clone untuk Seamless Loop) -->
+                            <!-- Duplikat Baris 2 -->
                             <div class="flex gap-6 pr-6">
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-pink-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-pink-500/20 rounded-xl flex items-center justify-center text-pink-400 font-bold text-xl">AD</div><h4 class="font-bold text-white">AI-Assisted Dev</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-300 font-bold text-xl">AD</div><h4 class="font-bold text-white">AI-Assisted Dev</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-blue-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg></div><h4 class="font-bold text-white">Next.js</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-sky-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-sky-500/10 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-sky-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg></div><h4 class="font-bold text-white">Next.js</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-teal-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h4 class="font-bold text-white">Tailwind CSS</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-teal-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-teal-500/10 rounded-xl flex items-center justify-center"><svg class="w-7 h-7 text-teal-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div><h4 class="font-bold text-white">Tailwind CSS</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-green-500 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-green-500/20 rounded-xl flex items-center justify-center text-green-400 font-bold text-xl">IT</div><h4 class="font-bold text-white">IT Support</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-blue-400 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-300 font-bold text-xl">IT</div><h4 class="font-bold text-white">IT Support</h4>
                                 </div>
-                                <div class="w-48 shrink-0 bg-slate-900/80 p-6 rounded-2xl border border-slate-700/50 text-center hover:border-red-400 transition-all shadow-lg">
-                                    <div class="w-14 h-14 mx-auto mb-4 bg-red-400/20 rounded-xl flex items-center justify-center text-red-400 font-bold text-xl">NW</div><h4 class="font-bold text-white">Networking</h4>
+                                <div class="w-48 shrink-0 bg-slate-950/70 p-6 rounded-2xl border border-slate-800 text-center hover:border-slate-300 transition-all">
+                                    <div class="w-14 h-14 mx-auto mb-4 bg-slate-400/10 rounded-xl flex items-center justify-center text-slate-200 font-bold text-xl">NW</div><h4 class="font-bold text-white">Networking</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
-<!-- Pengalaman Kerja (3D Black Hole Effect) -->
+
+    <!-- Pengalaman Kerja (3D Black Hole Effect - Monokrom & Ice Blue) -->
     <section id="experience" class="py-32 px-6 relative flex flex-col items-center overflow-hidden z-10">
-        
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/20 via-[#0a0a0a] to-transparent -z-10 opacity-70"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-black rounded-full shadow-[0_0_150px_50px_rgba(0,0,0,1)] border border-white/5 -z-20"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900/30 via-[#030712] to-transparent -z-10 opacity-80"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-black rounded-full shadow-[0_0_150px_60px_rgba(0,0,0,1)] border border-white/5 -z-20"></div>
 
         <div class="max-w-4xl mx-auto w-full text-center mb-24 relative z-10" data-aos="fade-down">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-4">Perjalanan Karir</h2>
-            <p class="text-slate-400">Jejak pengalaman profesional dan proyek yang pernah saya kerjakan.</p>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-sky-300 mb-4">Perjalanan Karir</h2>
+            <p class="text-slate-400 text-sm md:text-base">Jejak pengalaman profesional dan proyek yang pernah saya kerjakan.</p>
         </div>
 
         <div class="relative w-full max-w-4xl mx-auto" style="perspective: 2000px;">
-            <div class="absolute left-[16px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-gray-600 to-transparent md:-translate-x-1/2"></div>
+            <div class="absolute left-[16px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-sky-500/40 to-transparent md:-translate-x-1/2"></div>
 
             <!-- Stikes Primaya -->
             <div class="black-hole-item relative w-full md:w-[45%] md:ml-auto mb-12 pl-12 md:pl-10">
-                <div class="absolute left-0 md:-left-[29px] top-6 w-8 h-8 rounded-full bg-[#0a0a0a] border-4 border-blue-400 shadow-[0_0_15px_rgba(96,165,250,0.5)] flex items-center justify-center z-10">
+                <div class="absolute left-0 md:-left-[29px] top-6 w-8 h-8 rounded-full bg-slate-950 border-4 border-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.6)] flex items-center justify-center z-10">
                     <div class="w-2 h-2 bg-white rounded-full"></div>
                 </div>
-                <div class="bg-slate-900/60 backdrop-blur-md border border-slate-700/50 p-8 rounded-3xl shadow-2xl hover:border-blue-400 hover:shadow-[0_0_30px_rgba(96,165,250,0.1)] transition-all duration-500">
+                <div class="bg-slate-900/70 backdrop-blur-md border border-slate-800 p-8 rounded-3xl shadow-2xl hover:border-sky-400/60 hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all duration-500">
                     <span class="inline-block px-3 py-1 bg-white/10 text-white rounded-full text-xs font-bold tracking-widest mb-4">2023 - SEKARANG</span>
                     <h3 class="text-2xl font-bold text-white mb-1">IT Support / Staff IT</h3>
-                    <h4 class="text-gray-400 mb-4 font-medium italic">Stikes Primaya</h4>
+                    <h4 class="text-sky-300/80 mb-4 font-medium italic">Stikes Primaya</h4>
                     <p class="text-slate-400 text-sm leading-relaxed">Mengelola dan memelihara jaringan komputer akademik. Bertanggung jawab atas troubleshooting hardware/software, serta membangun dan mengelola portal Web Stikes Primaya.</p>
                 </div>
             </div>
 
             <!-- Proyek Independen -->
             <div class="black-hole-item relative w-full md:w-[45%] md:mr-auto mb-12 pl-12 md:pr-10 md:pl-0 text-left md:text-right">
-                <div class="absolute left-0 md:left-auto md:-right-[29px] top-6 w-8 h-8 rounded-full bg-[#0a0a0a] border-4 border-purple-500 flex items-center justify-center z-10"></div>
-                <div class="bg-slate-900/40 backdrop-blur-md border border-slate-800 p-8 rounded-3xl shadow-2xl hover:border-purple-500 transition-all duration-500">
-                    <span class="inline-block px-3 py-1 bg-white/5 text-gray-300 rounded-full text-xs font-bold tracking-widest mb-4">SEKARANG</span>
+                <div class="absolute left-0 md:left-auto md:-right-[29px] top-6 w-8 h-8 rounded-full bg-slate-950 border-4 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.6)] flex items-center justify-center z-10">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div class="bg-slate-900/70 backdrop-blur-md border border-slate-800 p-8 rounded-3xl shadow-2xl hover:border-cyan-400/60 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] transition-all duration-500">
+                    <span class="inline-block px-3 py-1 bg-white/10 text-cyan-300 rounded-full text-xs font-bold tracking-widest mb-4">SEKARANG</span>
                     <h3 class="text-2xl font-bold text-white mb-1">Full-Stack Web Developer</h3>
-                    <h4 class="text-gray-500 mb-4 font-medium italic">Proyek Independen Klinik</h4>
+                    <h4 class="text-cyan-300/80 mb-4 font-medium italic">Proyek Independen Klinik</h4>
                     <p class="text-slate-400 text-sm leading-relaxed">Membangun sistem klinik end-to-end (rekam medis, farmasi, kasir) dalam 2 bulan menggunakan AI-Assisted Development dan penerapan Prompt Engineering tingkat lanjut.</p>
                 </div>
             </div>
 
             <!-- Klinik Pratama Rahmat Medika -->
             <div class="black-hole-item relative w-full md:w-[45%] md:ml-auto mb-12 pl-12 md:pl-10">
-                <div class="absolute left-0 md:-left-[29px] top-6 w-8 h-8 rounded-full bg-[#0a0a0a] border-4 border-gray-600 flex items-center justify-center z-10"></div>
-                <div class="bg-slate-900/30 backdrop-blur-md border border-slate-800 p-8 rounded-3xl shadow-2xl hover:border-gray-500 transition-all duration-500">
-                    <span class="inline-block px-3 py-1 bg-white/5 text-gray-400 rounded-full text-xs font-bold tracking-widest mb-4">2021 - 2022</span>
-                    <h3 class="text-2xl font-bold text-gray-200 mb-1">IT Support & Pengadaan</h3>
-                    <h4 class="text-gray-600 mb-4 font-medium italic">Klinik Pratama Rahmat Medika</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Menangani operasional pengadaan barang IT, konfigurasi infrastruktur, dan pemeliharaan stabilitas jaringan demi kelancaran administrasi medis.</p>
+                <div class="absolute left-0 md:-left-[29px] top-6 w-8 h-8 rounded-full bg-slate-950 border-4 border-slate-600 flex items-center justify-center z-10"></div>
+                <div class="bg-slate-900/50 backdrop-blur-md border border-slate-800/80 p-8 rounded-3xl shadow-2xl hover:border-slate-500 transition-all duration-500">
+                    <span class="inline-block px-3 py-1 bg-white/5 text-slate-300 rounded-full text-xs font-bold tracking-widest mb-4">2021 - 2022</span>
+                    <h3 class="text-2xl font-bold text-slate-100 mb-1">IT Support & Pengadaan</h3>
+                    <h4 class="text-slate-400 mb-4 font-medium italic">Klinik Pratama Rahmat Medika</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Menangani operasional pengadaan barang IT, konfigurasi infrastruktur, dan pemeliharaan stabilitas jaringan demi kelancaran administrasi medis.</p>
                 </div>
             </div>
 
             <!-- Magang Biro Mitra Psikologi -->
             <div class="black-hole-item relative w-full md:w-[45%] md:mr-auto mb-12 pl-12 md:pr-10 md:pl-0 text-left md:text-right">
-                <div class="absolute left-0 md:left-auto md:-right-[29px] top-6 w-8 h-8 rounded-full bg-[#0a0a0a] border-4 border-gray-700 flex items-center justify-center z-10"></div>
-                <div class="bg-slate-900/30 backdrop-blur-md border border-slate-800 p-8 rounded-3xl shadow-2xl hover:border-gray-600 transition-all duration-500">
-                    <span class="inline-block px-3 py-1 bg-white/5 text-gray-500 rounded-full text-xs font-bold tracking-widest mb-4">2021</span>
-                    <h3 class="text-xl font-bold text-gray-300 mb-1">Web Developer Intern</h3>
-                    <h4 class="text-gray-600 mb-4 font-medium italic">Biro Mitra Psikologi</h4>
-                    <p class="text-slate-500 text-sm leading-relaxed">Berpartisipasi aktif dalam digitalisasi sistem administrasi dan pengembangan aplikasi berbasis web untuk manajemen data pelatihan.</p>
+                <div class="absolute left-0 md:left-auto md:-right-[29px] top-6 w-8 h-8 rounded-full bg-slate-950 border-4 border-slate-700 flex items-center justify-center z-10"></div>
+                <div class="bg-slate-900/50 backdrop-blur-md border border-slate-800/80 p-8 rounded-3xl shadow-2xl hover:border-slate-600 transition-all duration-500">
+                    <span class="inline-block px-3 py-1 bg-white/5 text-slate-400 rounded-full text-xs font-bold tracking-widest mb-4">2021</span>
+                    <h3 class="text-xl font-bold text-slate-200 mb-1">Web Developer Intern</h3>
+                    <h4 class="text-slate-400 mb-4 font-medium italic">Biro Mitra Psikologi</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Berpartisipasi aktif dalam digitalisasi sistem administrasi dan pengembangan aplikasi berbasis web untuk manajemen data pelatihan.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-                
-  <!-- Proyek (3D Carousel Autoplay) -->
+    <!-- Proyek (3D Carousel Autoplay) -->
     <section id="projects" class="py-24 px-6 relative min-h-[90vh] flex flex-col items-center overflow-hidden">
         <div class="max-w-6xl mx-auto w-full text-center z-10">
-            <p class="text-blue-400 font-bold tracking-widest text-sm uppercase mb-2" data-aos="fade-up">Featured Highlights</p>
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up" data-aos-delay="100">Milestones & Achievements</h2>
+            <p class="text-cyan-400 font-bold tracking-widest text-xs uppercase mb-2" data-aos="fade-up">Featured Highlights</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-sky-300 text-center mb-16" data-aos="fade-up" data-aos-delay="100">
+                Milestones & Achievements
+            </h2>
             
             <!-- Area Carousel -->
-            <!-- PERBAIKAN: Menghapus flex center yang bentrok dengan absolute -->
-            <div id="carousel-container" class="relative w-full h-[400px] md:h-[500px] perspective-[1000px] mt-4">
+            <div id="carousel-container" class="relative w-full h-[420px] md:h-[500px] perspective-[1000px] mt-4">
                 
                 <!-- Card 1 -->
-                <!-- PERBAIKAN: Menambahkan top-1/2 left-1/2 di setiap kartu -->
-                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800" data-title="Sistem Manajemen Klinik">
-                    <div class="h-48 md:h-56 bg-slate-700 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20"></div>
+                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900" data-title="Sistem Manajemen Klinik">
+                    <div class="h-48 md:h-56 bg-slate-950 overflow-hidden relative border-b border-slate-800">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/10"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-slate-500 font-bold text-xl">Clinic System</span>
+                            <span class="text-cyan-400 font-bold text-xl tracking-wide">Clinic System</span>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 text-left">
@@ -345,11 +352,11 @@
                 </div>
 
                 <!-- Card 2 -->
-                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800" data-title="Web Stikes Primaya">
-                    <div class="h-48 md:h-56 bg-slate-700 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-teal-600/20"></div>
+                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900" data-title="Web Stikes Primaya">
+                    <div class="h-48 md:h-56 bg-slate-950 overflow-hidden relative border-b border-slate-800">
+                        <div class="absolute inset-0 bg-gradient-to-br from-sky-500/20 to-slate-700/20"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-slate-500 font-bold text-xl">Academic Portal</span>
+                            <span class="text-sky-400 font-bold text-xl tracking-wide">Academic Portal</span>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 text-left">
@@ -359,11 +366,11 @@
                 </div>
 
                 <!-- Card 3 -->
-                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800" data-title="Sistem Administrasi Psikologi">
-                    <div class="h-48 md:h-56 bg-slate-700 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-600/20"></div>
+                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900" data-title="Sistem Mitra Psikologi">
+                    <div class="h-48 md:h-56 bg-slate-950 overflow-hidden relative border-b border-slate-800">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-400/10"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-slate-500 font-bold text-xl">Data Management</span>
+                            <span class="text-blue-300 font-bold text-xl tracking-wide">Data Management</span>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 text-left">
@@ -373,11 +380,11 @@
                 </div>
 
                 <!-- Card 4 -->
-                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800" data-title="Setup Infrastruktur IT">
-                    <div class="h-48 md:h-56 bg-slate-700 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-pink-600/20"></div>
+                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900" data-title="Setup Infrastruktur IT">
+                    <div class="h-48 md:h-56 bg-slate-950 overflow-hidden relative border-b border-slate-800">
+                        <div class="absolute inset-0 bg-gradient-to-br from-slate-600/20 to-sky-500/20"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-slate-500 font-bold text-xl">IT Infrastructure</span>
+                            <span class="text-slate-300 font-bold text-xl tracking-wide">IT Infrastructure</span>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 text-left">
@@ -387,11 +394,11 @@
                 </div>
 
                 <!-- Card 5 -->
-                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-800" data-title="Dashboard Analytics">
-                    <div class="h-48 md:h-56 bg-slate-700 overflow-hidden relative">
-                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20"></div>
+                <div class="carousel-card absolute top-1/2 left-1/2 w-[280px] md:w-[380px] transition-all duration-700 ease-in-out rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900" data-title="Dashboard Analytics">
+                    <div class="h-48 md:h-56 bg-slate-950 overflow-hidden relative border-b border-slate-800">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-slate-800/40"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="text-slate-500 font-bold text-xl">Analytics API</span>
+                            <span class="text-cyan-300 font-bold text-xl tracking-wide">Analytics SQL</span>
                         </div>
                     </div>
                     <div class="p-6 md:p-8 text-left">
@@ -402,56 +409,58 @@
 
             </div>
 
-            <!-- Control Bar -->
+            <!-- Control Bar (Play/Pause Cyan-Blue) -->
             <div class="mt-8 flex items-center justify-center gap-4 z-20 relative" data-aos="fade-up" data-aos-delay="200">
-                <button id="carousel-prev" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <button id="carousel-prev" class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-white/10 transition-all">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
                 
-                <div class="flex items-center gap-4 bg-white/5 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-lg">
-                    <span id="active-title-display" class="text-sm font-semibold w-40 md:w-56 text-left truncate text-white">Memuat...</span>
-                    <button id="carousel-play-pause" class="bg-pink-600 hover:bg-pink-500 text-white px-5 py-2 rounded-full text-xs font-bold tracking-wider transition-colors flex items-center gap-2">
+                <div class="flex items-center gap-4 bg-slate-900/80 backdrop-blur-xl px-6 py-2 rounded-full border border-slate-800 shadow-2xl">
+                    <span id="active-title-display" class="text-xs md:text-sm font-semibold w-36 md:w-56 text-left truncate text-slate-200">Memuat...</span>
+                    <button id="carousel-play-pause" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white px-5 py-2 rounded-full text-xs font-bold tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(34,211,238,0.3)]">
                         <span id="play-icon">⏸</span> <span id="play-text">PAUSE TOUR</span>
                     </button>
                 </div>
 
-                <button id="carousel-next" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <button id="carousel-next" class="w-11 h-11 flex items-center justify-center rounded-full bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-white/10 transition-all">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </button>
             </div>
             
         </div>
     </section>
 
-   <!-- Footer / Kontak -->
-    <footer id="contact" class="py-12 bg-slate-900 border-t border-slate-800 text-center">
+    <!-- Footer / Kontak -->
+    <footer id="contact" class="py-16 bg-[#02050b] border-t border-slate-800/80 text-center">
         <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
-            <h2 class="text-3xl font-bold mb-6">Mari Terhubung!</h2>
-            <p class="text-slate-400 mb-8 max-w-lg mx-auto">Saya siap membantu mendigitalisasikan ide Anda atau menjaga stabilitas infrastruktur IT perusahaan Anda.</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">Mari Terhubung!</h2>
+            <p class="text-slate-400 mb-8 max-w-lg mx-auto text-sm md:text-base">Saya siap membantu mendigitalisasikan ide Anda atau menjaga stabilitas infrastruktur IT perusahaan Anda.</p>
             
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-10 text-slate-300">
-                <span class="flex items-center gap-2"><svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Muhammadnindyawan@gmail.com</span>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-10 text-slate-300 text-sm">
+                <span class="flex items-center gap-2 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-800">
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> 
+                    Muhammadnindyawan@gmail.com
+                </span>
                 <span class="hidden md:block text-slate-600">|</span>
-                <span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +62 857 5582 7539</span>
+                <span class="flex items-center gap-2 bg-slate-900/80 px-4 py-2 rounded-xl border border-slate-800">
+                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> 
+                    +62 857 5582 7539
+                </span>
             </div>
 
-            <a href="mailto:Muhammadnindyawan@gmail.com" class="inline-block px-8 py-4 bg-white text-slate-900 rounded-full font-bold hover:bg-gray-200 hover:scale-105 transition-all duration-300">
+            <a href="mailto:Muhammadnindyawan@gmail.com" class="inline-block px-8 py-4 bg-white text-slate-950 rounded-full font-bold hover:bg-cyan-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300">
                 Kirim Email Langsung
             </a>
             
-            <div class="mt-16 text-slate-600 text-sm">
-                &copy; 2026 M. Nindyawan Febrianto. Berbasis di Jl. Kedungmundu Raya No 17, Semarang.
+            <div class="mt-16 text-slate-600 text-xs md:text-sm">
+                &copy; 2026 M. Nindyawan Febrianto. Jl. Kedungmundu Raya No 17, Semarang.
             </div>
         </div>
     </footer>
 
-   <!-- Script Three.js untuk Background Gelombang Partikel -->
+    <!-- Three.js & Script Eksternal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    
-    <!-- Script AOS & milikmu yang sudah ada -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
-
-    
 </body>
 </html>
