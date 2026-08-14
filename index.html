@@ -15,10 +15,15 @@
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
 
-    <!-- Efek Cahaya Latar Belakang (Blobs) -->
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-screen filter blur-[100px] opacity-30 blob"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-96 h-96 bg-blue-600 rounded-full mix-blend-screen filter blur-[100px] opacity-30 blob-delayed"></div>
+   <!-- Efek Latar Belakang Modern (Grid + Aurora) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none bg-[#050b14]">
+        <!-- Tekstur Tech Grid -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20width=%2240%22%20height=%2240%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22M40%2040H0V0%22%20fill=%22none%22%20stroke=%22rgba(255,255,255,0.04)%22%20stroke-width=%221%22/%3E%3C/svg%3E')] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"></div>
+
+        <!-- Cahaya Aurora (Blobs) yang lebih menyebar -->
+        <div class="absolute top-[-20%] left-[-10%] w-[30rem] h-[30rem] md:w-[50rem] md:h-[50rem] bg-indigo-600/30 rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] blob pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] md:blur-[130px] blob-delayed pointer-events-none"></div>
+        <div class="absolute top-[20%] left-[30%] w-[20rem] h-[20rem] md:w-[35rem] md:h-[35rem] bg-purple-600/20 rounded-full mix-blend-screen filter blur-[80px] md:blur-[120px] blob pointer-events-none" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Navigasi -->
