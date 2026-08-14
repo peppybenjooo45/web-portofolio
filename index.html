@@ -69,7 +69,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="hover:text-blue-400 transition">Beranda</a>
                 <a href="#about" class="hover:text-purple-400 transition">Tentang</a>
-                <a href="#projects" class="hover:text-blue-400 transition">Proyek</a>
+                <a href="proyek.html" class="hover:text-blue-400 transition">Proyek</a>
                 <a href="#contact" class="px-5 py-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm transition border border-white/10">Kontak</a>
             </div>
         </div>
@@ -150,7 +150,7 @@
                 Seorang Front-End Developer yang bersemangat menciptakan pengalaman digital interaktif, responsif, dan memukau menggunakan Next.js & Tailwind CSS.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
-                <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all duration-300">
+                <a href="proyek.html" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:-translate-y-1 transition-all duration-300">
                     Lihat Karya Saya
                 </a>
                 <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
@@ -198,106 +198,6 @@
         </div>
     </section>
 
-    <!-- Proyek (Interaktif Bertahap / Pola Zigzag) -->
-    <section id="projects" class="py-24 px-6 relative min-h-[90vh] flex flex-col items-center">
-        <div class="max-w-6xl mx-auto w-full">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Karya Terbaru</h2>
-            
-            <div id="interactive-projects-container" class="relative w-full flex flex-col items-center justify-start min-h-[650px]">
-                
-                <!-- Tombol Mulai -->
-                <button id="btn-start-projects" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full font-bold text-lg hover:scale-105 hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transition-all duration-300 absolute top-10 z-20">
-                    Tampilkan Semua Proyek Saya
-                </button>
-
-                <!-- Grid Proyek (Pola Zigzag Tangga) -->
-                <div id="projects-grid" class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 hidden opacity-0 transition-opacity duration-700">
-                    
-                    <!-- Kartu Proyek 1 (Kiri Atas) -->
-                    <div id="project-1" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-1 md:self-start">
-                        <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-                            <div class="h-56 bg-slate-700 overflow-hidden relative">
-                                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 group-hover:scale-110 transition-transform duration-700"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <span class="text-slate-500 font-bold text-xl">Preview E-Commerce</span>
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <div class="flex gap-2 mb-4">
-                                    <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-bold">Next.js</span>
-                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 rounded-full text-xs font-bold">Tailwind</span>
-                                </div>
-                                <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition-colors">Toko Online Premium</h3>
-                                <p class="text-slate-400 text-sm mb-6 line-clamp-3">Membangun platform e-commerce dengan sistem keranjang belanja interaktif dan desain yang sangat responsif.</p>
-                                <a href="#" class="inline-flex items-center text-sm font-bold text-blue-400 hover:text-blue-300">
-                                    Lihat Detail <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kartu Proyek 2 (Tengah - Agak ke Bawah) -->
-                    <div id="project-2" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-2 md:mt-24">
-                        <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-                            <div class="h-56 bg-slate-700 overflow-hidden relative">
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-600/20 group-hover:scale-110 transition-transform duration-700"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <span class="text-slate-500 font-bold text-xl">Preview Microblog</span>
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <div class="flex gap-2 mb-4">
-                                    <span class="px-3 py-1 bg-purple-500/10 text-purple-400 rounded-full text-xs font-bold">React</span>
-                                    <span class="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-full text-xs font-bold">Hygraph</span>
-                                </div>
-                                <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition-colors">Sistem Microblog</h3>
-                                <p class="text-slate-400 text-sm mb-6 line-clamp-3">Aplikasi blog ringan menggunakan Headless CMS yang kita pelajari dari Vercel dengan manajemen data yang cepat.</p>
-                                <a href="#" class="inline-flex items-center text-sm font-bold text-purple-400 hover:text-purple-300">
-                                    Lihat Detail <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Kartu Proyek 3 (Kanan - Paling Bawah) -->
-                    <div id="project-3" class="project-card opacity-0 translate-y-10 transition-all duration-700 ease-out md:col-start-3 md:mt-48">
-                        <div class="group bg-slate-800 rounded-3xl overflow-hidden border border-slate-700 hover:border-yellow-500/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-                            <div class="h-56 bg-slate-700 overflow-hidden relative">
-                                <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-orange-600/20 group-hover:scale-110 transition-transform duration-700"></div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <span class="text-slate-500 font-bold text-xl">Preview Dashboard</span>
-                                </div>
-                            </div>
-                            <div class="p-8">
-                                <div class="flex gap-2 mb-4">
-                                    <span class="px-3 py-1 bg-yellow-500/10 text-yellow-400 rounded-full text-xs font-bold">JavaScript</span>
-                                    <span class="px-3 py-1 bg-orange-500/10 text-orange-400 rounded-full text-xs font-bold">API</span>
-                                </div>
-                                <h3 class="text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">Dashboard Analytics</h3>
-                                <p class="text-slate-400 text-sm mb-6 line-clamp-3">Panel analitik data interaktif yang menampilkan grafik dan diagram secara real-time dari REST API.</p>
-                                <a href="#" class="inline-flex items-center text-sm font-bold text-yellow-400 hover:text-yellow-300">
-                                    Lihat Detail <svg class="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Kontrol Navigasi (Next / Selesai) -->
-                <div id="project-controls" class="mt-8 md:mt-16 hidden opacity-0 transition-opacity duration-700 w-full flex justify-center z-20 absolute bottom-0 mb-6">
-                    <button id="btn-next-project" class="px-8 py-3 border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white rounded-full font-bold transition-colors duration-300 shadow-lg">
-                        Next ➔
-                    </button>
-                    <div id="text-done" class="hidden text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 px-8 py-3">
-                        Selesai 🎉
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <!-- Footer / Kontak -->
     <footer id="contact" class="py-12 bg-slate-900 border-t border-slate-800 text-center">
         <div class="max-w-4xl mx-auto px-6" data-aos="zoom-in">
@@ -312,7 +212,7 @@
         </div>
     </footer>
 
-    <!-- AOS Animation Script & Mesin Fisika ID Card + Interaksi Proyek -->
+    <!-- AOS Animation Script & Mesin Fisika ID Card -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
@@ -421,64 +321,6 @@
                 requestAnimationFrame(animatePhysics);
             }
             animatePhysics();
-        }
-
-        // ============================================================
-        // LOGIKA INTERAKTIF PROYEK (Tampil Satu Per Satu / Pola Tangga)
-        // ============================================================
-        const btnStart = document.getElementById('btn-start-projects');
-        const projectsGrid = document.getElementById('projects-grid');
-        const controls = document.getElementById('project-controls');
-        const btnNext = document.getElementById('btn-next-project');
-        const textDone = document.getElementById('text-done');
-        
-        const projectCards = [
-            document.getElementById('project-1'),
-            document.getElementById('project-2'),
-            document.getElementById('project-3')
-        ];
-
-        let currentStep = 0;
-
-        function showNextProject() {
-            if (currentStep < projectCards.length) {
-                const card = projectCards[currentStep];
-                card.classList.remove('opacity-0', 'translate-y-10');
-                card.classList.add('opacity-100', 'translate-y-0');
-                
-                currentStep++;
-
-                if (currentStep === projectCards.length) {
-                    btnNext.classList.add('hidden');
-                    textDone.classList.remove('hidden');
-                }
-            }
-        }
-
-        if (btnStart && btnNext) {
-            btnStart.addEventListener('click', () => {
-                btnStart.classList.add('opacity-0', 'scale-90');
-                setTimeout(() => {
-                    btnStart.classList.add('hidden');
-                    projectsGrid.classList.remove('hidden');
-                    void projectsGrid.offsetWidth; 
-                    projectsGrid.classList.remove('opacity-0');
-                    
-                    controls.classList.remove('hidden');
-                    void controls.offsetWidth;
-                    controls.classList.remove('opacity-0');
-
-                    setTimeout(showNextProject, 300);
-                }, 300);
-            });
-
-            btnNext.addEventListener('click', () => {
-                showNextProject();
-                if (window.innerWidth < 768) {
-                    const latestCard = projectCards[currentStep - 1];
-                    latestCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
         }
     </script>
 </body>
