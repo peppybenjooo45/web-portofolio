@@ -15,15 +15,14 @@
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
 
-   <!-- Efek Latar Belakang Modern (Grid + Aurora) -->
-    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none bg-[#050b14]">
-        <!-- Tekstur Tech Grid -->
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20width=%2240%22%20height=%2240%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d=%22M40%2040H0V0%22%20fill=%22none%22%20stroke=%22rgba(255,255,255,0.04)%22%20stroke-width=%221%22/%3E%3C/svg%3E')] [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent_100%)]"></div>
+  <!-- Efek Latar Belakang Modern (Grid + Aurora + Particle) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 bg-[#050b14]">
+        <!-- Tempat Canvas Three.js akan muncul -->
+        <div id="canvas-container" class="absolute inset-0 pointer-events-none opacity-60"></div>
 
-        <!-- Cahaya Aurora (Blobs) yang lebih menyebar -->
+        <!-- Cahaya Aurora (Blobs) -->
         <div class="absolute top-[-20%] left-[-10%] w-[30rem] h-[30rem] md:w-[50rem] md:h-[50rem] bg-indigo-600/30 rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] blob pointer-events-none"></div>
         <div class="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] md:blur-[130px] blob-delayed pointer-events-none"></div>
-        <div class="absolute top-[20%] left-[30%] w-[20rem] h-[20rem] md:w-[35rem] md:h-[35rem] bg-purple-600/20 rounded-full mix-blend-screen filter blur-[80px] md:blur-[120px] blob pointer-events-none" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Navigasi -->
@@ -316,8 +315,13 @@
         </div>
     </footer>
 
-    <!-- AOS Animation Script & File JS Eksternal -->
+   <!-- Script Three.js untuk Background Gelombang Partikel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    
+    <!-- Script AOS & milikmu yang sudah ada -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    
 </body>
 </html>
