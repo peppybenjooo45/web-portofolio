@@ -108,40 +108,94 @@
         </div>
     </section>
 
-    <!-- Tentang / Keahlian -->
-    <section id="about" class="py-24 px-6 bg-slate-900/50">
+   <!-- Tentang / Keahlian (Diperbarui dengan Layout Foto & Bio) -->
+    <section id="about" class="py-24 px-6 bg-slate-900/50 relative">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Teknologi yang Saya Kuasai</h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-blue-500/50 group" data-aos="flip-left" data-aos-delay="100">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg>
+            <!-- Kartu Utama (Glassmorphism Wrapper sesuai coretan Anda) -->
+            <div class="bg-slate-800/40 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-3xl shadow-[0_15px_35px_rgba(0,0,0,0.3)]" data-aos="fade-up">
+                
+                <!-- Grid 2 Kolom: Kiri (Foto), Kanan (Tentang Saya) -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16">
+                    
+                    <!-- Kolom Kiri: Foto / Avatar -->
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="relative group">
+                            <!-- Efek Glow di belakang foto -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-70 group-hover:opacity-100 transition duration-500"></div>
+                            
+                            <!-- Kotak FOTO -->
+                            <div class="relative w-56 h-72 md:w-64 md:h-80 bg-slate-800 rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center bg-cover bg-center shadow-xl" style="background-image: url('https://ui-avatars.com/api/?name=MN&background=0D8ABC&color=fff&size=512');">
+                                <!-- Anda bisa mengganti URL di atas atau menggunakan tag <img> asli -->
+                                <span class="absolute bottom-4 px-4 py-1.5 bg-slate-900/80 backdrop-blur-md text-xs font-bold text-blue-400 rounded-full border border-white/10">
+                                    Full Stack Developer
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg">Next.js</h3>
-                </div>
-                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-teal-500/50 group" data-aos="flip-left" data-aos-delay="200">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+
+                    <!-- Kolom Kanan: Teks Tentang Saya -->
+                    <div class="lg:col-span-8 text-left">
+                        <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                            Tentang Saya
+                        </h2>
+                        <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-4">
+                            Halo! Saya <span class="text-white font-semibold">Muhamad Nindyawan Febrianto</span>, seorang pengembang web yang berdedikasi dalam menciptakan aplikasi digital yang interaktif, memiliki performa tinggi, dan ramah pengguna.
+                        </p>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
+                            Saya memiliki ketertarikan mendalam pada perancangan antarmuka modern (*UI/UX Animation*) serta pembangunan arsitektur *front-end* dan *back-end* yang bersih menggunakan teknologi terkini seperti Next.js dan Tailwind CSS.
+                        </p>
+                        <div class="flex flex-wrap gap-4 text-sm text-slate-300">
+                            <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">
+                                <span class="w-2 h-2 rounded-full bg-blue-500"></span> Semarang, Indonesia
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-xl border border-white/5">
+                                <span class="w-2 h-2 rounded-full bg-purple-500"></span> Terbuka untuk Proyek
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg">Tailwind CSS</h3>
+
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-yellow-500/50 group" data-aos="flip-left" data-aos-delay="300">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+
+                <!-- Bagian Bawah: Teknologi yang Saya Kuasai -->
+                <div class="border-t border-white/10 pt-12">
+                    <h3 class="text-2xl font-bold text-center mb-10 text-white">Teknologi yang Saya Kuasai</h3>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <!-- Skill 1 -->
+                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-blue-500/50 group" data-aos="flip-left" data-aos-delay="100">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-blue-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/></svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-white">Next.js</h4>
+                        </div>
+                        <!-- Skill 2 -->
+                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-teal-500/50 group" data-aos="flip-left" data-aos-delay="200">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-teal-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-white">Tailwind CSS</h4>
+                        </div>
+                        <!-- Skill 3 -->
+                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-yellow-500/50 group" data-aos="flip-left" data-aos-delay="300">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-yellow-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-white">JavaScript ES6+</h4>
+                        </div>
+                        <!-- Skill 4 -->
+                        <div class="bg-slate-900/60 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-900 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-purple-500/50 group" data-aos="flip-left" data-aos-delay="400">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                            </div>
+                            <h4 class="font-bold text-lg text-white">UI/UX Animation</h4>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-lg">JavaScript ES6+</h3>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 text-center hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:border-purple-500/50 group" data-aos="flip-left" data-aos-delay="400">
-                    <div class="w-16 h-16 mx-auto mb-4 bg-purple-500/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                    </div>
-                    <h3 class="font-bold text-lg">UI/UX Animation</h3>
-                </div>
+
             </div>
         </div>
     </section>
-
    <!-- Proyek (Interaktif Bertahap / Pola Zigzag) -->
     <section id="projects" class="py-24 px-6 relative min-h-[90vh] flex flex-col items-center">
         <div class="max-w-6xl mx-auto w-full text-center">
