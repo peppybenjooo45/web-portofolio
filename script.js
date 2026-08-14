@@ -220,3 +220,100 @@ if (cards.length > 0) {
     updateCarousel();
     startAutoPlay();
 }
+
+
+// ============================================================
+// PARTICLE WAVES BACKGROUND (THREE.JS)
+// ============================================================
+function initParticleWaves() {
+    const container = document.getElementById('canvas-container');
+    if (!container || typeof THREE === 'undefined') return;
+
+    const SEPARATION = 100, AMOUNTX = 50, AMOUNTY = 50;
+    let camera, scene, renderer;
+    let particles, count = 0;
+
+    // 1. Setup Camera & Scene
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+    camera.position.z = 1000;
+    camera.position.y = 300; // Agak menunduk ke bawah
+    scene = new THREE.Scene();
+
+    // 2. Setup Partikel (Warna Ungu/Biru)
+    const numParticles = AMOUNTX * AMOUNTY;
+    const positions = new Float32Array(numParticles * 3);
+    const scales = new Float32Array(numParticles);
+
+    let i = 0, j = 0;
+    for (let ix = 0; ix < AMOUNTX; ix++) {
+        for (let iy = 0; iy < AMOUNTY; iy++) {
+            positions[i] = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2); // x
+            positions[i + 1] = 0; // y
+            positions[i + 2] = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2); // z
+            scales[j] = 1;
+            i += 3;
+            j++;
+        }
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
+
+    // Membuat material partikel berbentuk titik dengan warna kebiruan
+    const material = new THREE.PointsMaterial({ 
+        color: 0x8b5cf6, // Warna ungu khas Tailwind
+        size: 8,
+        sizeAttenuation: true 
+    });
+
+    particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+
+    // 3. Setup Renderer
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); // alpha: true agar background transparan
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    // 4. Animasi (Persis seperti logika di gambar yang kamu temukan)
+    function animate() {
+        requestAnimationFrame(animate);
+        render();
+    }
+
+    function render() {
+        const positions = particles.geometry.attributes.position.array;
+        const scales = particles.geometry.attributes.scale.array;
+
+        let i = 0, j = 0;
+        for (let ix = 0; ix < AMOUNTX; ix++) {
+            for (let iy = 0; iy < AMOUNTY; iy++) {
+                // Logika gelombang sinus seperti di kode yang kamu temukan
+                positions[i + 1] = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
+                scales[j] = (Math.sin((ix + count) * 0.3) + 1) * 4 + (Math.sin((iy + count) * 0.5) + 1) * 4;
+                i += 3;
+                j++;
+            }
+        }
+
+        particles.geometry.attributes.position.needsUpdate = true;
+        particles.geometry.attributes.scale.needsUpdate = true;
+        
+        renderer.render(scene, camera);
+        count += 0.05; // Kecepatan gelombang
+    }
+
+    // 5. Responsif saat layar di-resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Mulai animasi
+    animate();
+}
+
+// Jalankan fungsi saat web dimuat
+document.addEventListener("DOMContentLoaded", initParticleWaves);
