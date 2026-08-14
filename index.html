@@ -52,6 +52,16 @@
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+        /* Animasi Kartu Menggantung (Swing) */
+        @keyframes swing {
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(4deg); }
+        }
+        .swing-card {
+            transform-origin: top center;
+            animation: swing 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
