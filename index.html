@@ -15,14 +15,15 @@
 </head>
 <body class="antialiased selection:bg-blue-500 selection:text-white">
 
-  <!-- Efek Latar Belakang Modern (Grid + Aurora + Particle) -->
-    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 bg-[#050b14]">
+ <!-- Efek Latar Belakang Modern (Grid + Aurora + Particle) -->
+    <div class="fixed inset-0 w-full h-full overflow-hidden -z-10 bg-[#0a0a0a]">
         <!-- Tempat Canvas Three.js akan muncul -->
-        <div id="canvas-container" class="absolute inset-0 pointer-events-none opacity-60"></div>
+        <div id="canvas-container" class="absolute inset-0 pointer-events-none opacity-40"></div>
 
-        <!-- Cahaya Aurora (Blobs) -->
-        <div class="absolute top-[-20%] left-[-10%] w-[30rem] h-[30rem] md:w-[50rem] md:h-[50rem] bg-indigo-600/30 rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] blob pointer-events-none"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] bg-blue-600/20 rounded-full mix-blend-screen filter blur-[100px] md:blur-[130px] blob-delayed pointer-events-none"></div>
+        <!-- Cahaya Aurora (Blobs) Monokrom Estetik -->
+        <div class="absolute top-[-20%] left-[-10%] w-[30rem] h-[30rem] md:w-[50rem] md:h-[50rem] bg-zinc-600/20 rounded-full mix-blend-screen filter blur-[100px] md:blur-[150px] blob pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[30rem] h-[30rem] md:w-[45rem] md:h-[45rem] bg-gray-500/10 rounded-full mix-blend-screen filter blur-[100px] md:blur-[130px] blob-delayed pointer-events-none"></div>
+        <div class="absolute top-[20%] left-[30%] w-[20rem] h-[20rem] md:w-[35rem] md:h-[35rem] bg-slate-400/10 rounded-full mix-blend-screen filter blur-[80px] md:blur-[120px] blob pointer-events-none" style="animation-delay: 2s;"></div>
     </div>
 
     <!-- Navigasi -->
