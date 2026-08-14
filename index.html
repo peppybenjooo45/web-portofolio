@@ -285,16 +285,11 @@
 
     <!-- AOS Animation Script -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Inisialisasi library animasi saat scroll (AOS)
-        AOS.init({
-            once: true, // Animasi hanya berjalan sekali saat di-scroll
-            offset: 100, // Jarak scroll sebelum animasi mulai
-            duration: 800, // Durasi standar animasi
-            easing: 'ease-out-cubic',
-        });
+   <script>
+        // Inisialisasi library animasi saat scroll (AOS) - TETAP ADA
+        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
 
-        // Efek blur/shadow pada Navbar saat di-scroll
+        // Efek blur/shadow pada Navbar saat di-scroll - TETAP ADA
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -304,53 +299,72 @@
             }
         });
 
-        // Logika Animasi Kartu Interaktif (Drag & Swing)
+        // -----------------------------------------------------------
+        // UPDATE: Logika Animasi Kartu Interaktif (Fisika Engsel Lanyard)
+        // -----------------------------------------------------------
         const cardWrapper = document.getElementById('interactive-card');
+        const cardJoint = document.getElementById('card-joint'); // Titik engsel besi
         let isDragging = false;
         let originX, originY;
 
-        if (cardWrapper) {
-            // Saat kartu diklik dan ditahan
+        if (cardWrapper && cardJoint) {
+            // 1. Saat kartu diklik (Mulai ditarik)
             cardWrapper.addEventListener('mousedown', (e) => {
                 isDragging = true;
-                cardWrapper.style.transition = 'none'; // Matikan transisi agar responsif mengikuti mouse
+                
+                // Beri sedikit delay pada engsel agar kartu terasa 'lemas' dan berat
+                cardWrapper.style.transition = 'transform 0.05s linear'; 
+                cardJoint.style.transition = 'transform 0.15s ease-out'; 
+                
                 cardWrapper.classList.replace('cursor-grab', 'cursor-grabbing');
                 
-                // Set titik pusat tarikan di pangkal atas tali
+                // Cari titik tumpu (paku keling atas)
                 const rect = cardWrapper.getBoundingClientRect();
                 originX = rect.left + (rect.width / 2);
                 originY = rect.top; 
             });
 
-            // Saat mouse ditarik geser
+            // 2. Saat mouse bergeser
             window.addEventListener('mousemove', (e) => {
                 if (!isDragging) return;
                 
-                const mouseX = e.clientX;
-                const mouseY = e.clientY;
+                const deltaX = e.clientX - originX;
+                const deltaY = e.clientY - originY;
                 
-                const deltaX = mouseX - originX;
-                const deltaY = mouseY - originY;
-                
+                // Sudut tarikan kursor
                 let angle = Math.atan2(deltaX, deltaY) * (180 / Math.PI);
                 
-                // Batasan kemiringan rotasi
-                if (angle > 60) angle = 60;
-                if (angle < -60) angle = -60;
+                // Batasi kemiringan maksimal agar tidak melintir terbalik
+                if (angle > 70) angle = 70;
+                if (angle < -70) angle = -70;
                 
+                // Tali utama (orange) akan menunjuk lurus ke arah kursor
                 cardWrapper.style.transform = `rotate(${-angle}deg)`;
+                
+                // SIMULASI GRAVITASI: Kartu berputar melawan arah tali agar tetap menjuntai ke bawah
+                // Angka 0.55 menentukan seberapa "lemas" engselnya.
+                cardJoint.style.transform = `rotate(${angle * 0.55}deg)`;
             });
 
-            // Saat klik mouse dilepas
+            // 3. Saat klik dilepas (Melesat kembali)
             window.addEventListener('mouseup', () => {
                 if (!isDragging) return;
                 isDragging = false;
                 
                 cardWrapper.classList.replace('cursor-grabbing', 'cursor-grab');
                 
-                // Efek ayun memantul (spring) kembali ke posisi semula
+                // Aktifkan efek pegas (spring) untuk pantulan bolak-balik
                 cardWrapper.style.transition = 'transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                cardJoint.style.transition = 'transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                
+                // Kembalikan semua ke posisi tengah (0 derajat)
                 cardWrapper.style.transform = 'rotate(0deg)';
+                cardJoint.style.transform = 'rotate(0deg)';
+            });
+            
+            // Cegah error jika kursor keluar layar saat masih menarik kartu
+            window.addEventListener('mouseleave', () => {
+                if (isDragging) window.dispatchEvent(new Event('mouseup'));
             });
         }
     </script>
