@@ -87,3 +87,26 @@ body {
     0% { transform: translateX(-50%); }
     100% { transform: translateX(0); }
 }
+
+
+/* ======================================= */
+/* ANIMASI BLACK HOLE (PENGALAMAN KERJA)   */
+/* ======================================= */
+
+.black-hole-item {
+    opacity: 0;
+    /* Kartu bermula dari jauh di kedalaman layar (Z: -1000px), mengecil (scale: 0), sedikit berputar, dan blur hitam */
+    transform: translateZ(-1000px) scale(0) rotate(15deg) translateY(100px);
+    filter: blur(20px) brightness(0);
+    /* Animasi pantulan (cubic-bezier) agar keluarnya terasa dramatis */
+    transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-origin: center center;
+}
+
+/* Class ini akan ditambahkan oleh JavaScript saat user scroll ke bagian tersebut */
+.black-hole-item.in-view {
+    opacity: 1;
+    /* Terbang maju ke posisi normalnya */
+    transform: translateZ(0) scale(1) rotate(0deg) translateY(0);
+    filter: blur(0px) brightness(1);
+}
