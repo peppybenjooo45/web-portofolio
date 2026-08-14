@@ -260,9 +260,9 @@ function initParticleWaves() {
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
 
-    // Membuat material partikel berbentuk titik dengan warna kebiruan
+   // Membuat material partikel berbentuk titik dengan warna Silver/Abu-abu estetik
     const material = new THREE.PointsMaterial({ 
-        color: 0x8b5cf6, // Warna ungu khas Tailwind
+        color: 0x9ca3af, // Warna abu-abu silver
         size: 8,
         sizeAttenuation: true 
     });
