@@ -49,3 +49,41 @@ body {
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+
+/* ======================================= */
+/* ANIMASI MARQUEE (SCROLLING TEKNOLOGI)   */
+/* ======================================= */
+
+/* Efek pudar transparan di ujung kiri dan kanan */
+.mask-marquee {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+/* Pengaturan durasi dan jenis animasi (linear = kecepatan stabil) */
+.animate-marquee-left {
+    animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-right {
+    animation: marquee-right 25s linear infinite;
+}
+
+/* Menghentikan animasi saat kursor diarahkan ke kartu (opsional tapi elegan) */
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+    animation-play-state: paused;
+}
+
+/* Keyframes untuk bergeser ke kiri */
+@keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Keyframes untuk bergeser ke kanan */
+@keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
