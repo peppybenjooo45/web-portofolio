@@ -1,11 +1,11 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0a0a0a; /* Hitam abu-abu pekat estetik */
+    background-color: #030712;
     color: #f8fafc;
     overflow-x: hidden;
 }
 
-/* Animasi Mengambang (Floating) yang lebih Organik & Natural */
+/* Animasi Mengambang Glow */
 .blob {
     animation: float-organic 12s ease-in-out infinite alternate;
 }
@@ -14,23 +14,15 @@ body {
 }
 
 @keyframes float-organic {
-    0% { 
-        transform: translate(0px, 0px) scale(1); 
-    }
-    33% { 
-        transform: translate(30px, -50px) scale(1.1); 
-    }
-    66% { 
-        transform: translate(-20px, 20px) scale(0.9); 
-    }
-    100% { 
-        transform: translate(0px, 0px) scale(1); 
-    }
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -40px) scale(1.08); }
+    66% { transform: translate(-20px, 25px) scale(0.92); }
+    100% { transform: translate(0px, 0px) scale(1); }
 }
 
-/* Animasi Mengetik (Tetap sama seperti milik Anda) */
+/* Animasi Mengetik Biru Elektrik */
 .typewriter-text {
-    border-right: 4px solid #3b82f6;
+    border-right: 3px solid #38bdf8;
     white-space: nowrap;
     overflow: hidden;
     animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
@@ -41,72 +33,49 @@ body {
 }
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: #3b82f6; }
+    50% { border-color: #38bdf8; }
 }
 
-/* Kustom Scrollbar Tema Hitam Abu-abu */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0a0a0a; }
-::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
-
-
-/* ======================================= */
-/* ANIMASI MARQUEE (SCROLLING TEKNOLOGI)   */
-/* ======================================= */
-
-/* Efek pudar transparan di ujung kiri dan kanan */
+/* Marquee Scrolling Mask */
 .mask-marquee {
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
-
-/* Pengaturan durasi dan jenis animasi (linear = kecepatan stabil) */
 .animate-marquee-left {
     animation: marquee-left 25s linear infinite;
 }
-
 .animate-marquee-right {
     animation: marquee-right 25s linear infinite;
 }
-
-/* Menghentikan animasi saat kursor diarahkan ke kartu (opsional tapi elegan) */
 .animate-marquee-left:hover,
 .animate-marquee-right:hover {
     animation-play-state: paused;
 }
-
-/* Keyframes untuk bergeser ke kiri */
 @keyframes marquee-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
-
-/* Keyframes untuk bergeser ke kanan */
 @keyframes marquee-right {
     0% { transform: translateX(-50%); }
     100% { transform: translateX(0); }
 }
 
-
-/* ======================================= */
-/* ANIMASI BLACK HOLE (PENGALAMAN KERJA)   */
-/* ======================================= */
-
+/* 3D Black Hole Animation */
 .black-hole-item {
     opacity: 0;
-    /* Kartu bermula dari jauh di kedalaman layar (Z: -1000px), mengecil (scale: 0), sedikit berputar, dan blur hitam */
     transform: translateZ(-1000px) scale(0) rotate(15deg) translateY(100px);
     filter: blur(20px) brightness(0);
-    /* Animasi pantulan (cubic-bezier) agar keluarnya terasa dramatis */
     transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
     transform-origin: center center;
 }
-
-/* Class ini akan ditambahkan oleh JavaScript saat user scroll ke bagian tersebut */
 .black-hole-item.in-view {
     opacity: 1;
-    /* Terbang maju ke posisi normalnya */
     transform: translateZ(0) scale(1) rotate(0deg) translateY(0);
     filter: blur(0px) brightness(1);
 }
+
+/* Kustom Scrollbar Dark-Cyan */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
